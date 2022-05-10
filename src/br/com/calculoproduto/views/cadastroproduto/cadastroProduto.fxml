@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="943.0" prefWidth="1338.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.cadastroproduto.CadastroProdutoController">
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnListagem" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#redirecionarListagemProduto" text="Listagem" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="900.0" AnchorPane.topAnchor="15.0" />
+            <Label layoutX="501.0" layoutY="15.0" prefHeight="32.0" prefWidth="122.0" text="Cadastro de Produto" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="501.0" AnchorPane.rightAnchor="715.0" AnchorPane.topAnchor="15.0" />
+            <Label fx:id="labelMensagem" alignment="BOTTOM_CENTER" layoutX="791.0" layoutY="17.0" prefHeight="29.0" prefWidth="483.0" style="-fx-text-alignment: center;" textAlignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Cadastro">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="1060.0">
+                     <children>
+                        <TextField id="codigo" fx:id="codigo" layoutX="65.0" layoutY="66.0" prefHeight="25.0" prefWidth="412.0" promptText="Código" />
+                        <TextField id="descricao" fx:id="descricao" layoutX="540.0" layoutY="66.0" prefHeight="25.0" prefWidth="412.0" promptText="Descrição" />
+                        <TextField id="teor" fx:id="teor" layoutX="65.0" layoutY="138.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Teor" />
+                        <TextField id="kilo" fx:id="kilo" layoutX="289.0" layoutY="138.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Kilo" />
+                        <TextField id="Custo Bruto" fx:id="custoBruto" layoutX="540.0" layoutY="138.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Custo Bruto" />
+                        <TextField id="pesoMetal" fx:id="pesoMetal" layoutX="764.0" layoutY="138.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Peso Metal" />
+                        <TextField id="peso" fx:id="peso" layoutX="65.0" layoutY="186.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Peso" />
+                        <TextField id="acessorios" fx:id="acessorios" layoutX="289.0" layoutY="186.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Acessórios" />
+                        <TextField id="solta" fx:id="solta" layoutX="540.0" layoutY="186.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Solta" />
+                        <TextField id="banho" fx:id="banho" layoutX="764.0" layoutY="186.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Banho" />
+                        <TextField id="custoJA" fx:id="custoJA" layoutX="66.0" layoutY="236.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Custa J.A." />
+                        <Button id="btnSalvar" fx:id="btnSalvar" layoutX="482.0" layoutY="305.0" mnemonicParsing="false" onAction="#salvarProduto" text="Salvar" />
+                        <Button fx:id="btnSelecionarFornecedor" layoutX="541.0" layoutY="237.0" mnemonicParsing="false" onAction="#selecionarFornecedor" prefHeight="25.0" prefWidth="189.0" text="Selecionar Fornecedor" />
+                        <Label fx:id="labelFornecedor" layoutX="763.0" layoutY="236.0" prefHeight="26.0" prefWidth="192.0" style="-fx-border-color: #000; -fx-padding: 5px;" text="Informe um Fornecedor" />
+                        <Button fx:id="btnAdicionarImagem" layoutX="290.0" layoutY="236.0" mnemonicParsing="false" onAction="#adicionarImagem" prefHeight="25.0" prefWidth="190.0" text="Adicionar Imagem" />
+                        <TextField fx:id="txtCustoMetal" disable="true" layoutX="65.0" layoutY="406.0" promptText="Custo Metal" style="-fx-border-color: #ff0000;" />
+                        <TextField fx:id="txtBruto" disable="true" layoutX="289.0" layoutY="406.0" promptText="Bruto" style="-fx-border-color: #ff0000;" />
+                        <TextField fx:id="txtMetal" disable="true" layoutX="540.0" layoutY="406.0" promptText="Metal" style="-fx-border-color: #ff0000;" />
+                        <TextField fx:id="txtTotalCusto" disable="true" layoutX="764.0" layoutY="406.0" promptText="Total Custo" style="-fx-border-color: #ff0000;" />
+                        <TextField fx:id="txtCustoGrama" disable="true" layoutX="65.0" layoutY="484.0" promptText="Custo Grama" style="-fx-border-color: #ff0000;" />
+                        <TextField fx:id="txtFat" disable="true" layoutX="289.0" layoutY="484.0" promptText="Fat" style="-fx-border-color: #ff0000;" />
+                        <TextField fx:id="txtPorcentagem" disable="true" layoutX="540.0" layoutY="484.0" promptText="Percentagem" style="-fx-border-color: #ff0000;" />
+                        <Label layoutX="65.0" layoutY="389.0" text="Custo do Metal:" />
+                        <Label layoutX="289.0" layoutY="389.0" text="Valor Bruto:" />
+                        <Label layoutX="540.0" layoutY="389.0" text="Metal:" />
+                        <Label layoutX="762.0" layoutY="389.0" text="Total de Custo:" />
+                        <Label layoutX="65.0" layoutY="467.0" text="Custo da Grama:" />
+                        <Label layoutX="289.0" layoutY="467.0" text="Fat:" />
+                        <Label layoutX="543.0" layoutY="467.0" text="Procentagem:" />
+                        <Label layoutX="65.0" layoutY="49.0" text="Código: " />
+                        <Label layoutX="543.0" layoutY="49.0" text="Descrição: " />
+                        <Label layoutX="65.0" layoutY="121.0" text="Teor: " />
+                        <Label layoutX="294.0" layoutY="121.0" text="Kilo:" />
+                        <Label layoutX="543.0" layoutY="121.0" text="Custo Bruto:" />
+                        <Label layoutX="764.0" layoutY="121.0" text="Peso Metal:" />
+                        <Label layoutX="66.0" layoutY="169.0" text="Peso:" />
+                        <Label layoutX="292.0" layoutY="169.0" text="Acessórios:" />
+                        <Label layoutX="543.0" layoutY="169.0" text="Solta:" />
+                        <Label layoutX="764.0" layoutY="169.0" text="Banho:" />
+                        <Label layoutX="67.0" layoutY="217.0" text="Custa J.A." />
+                        <Button fx:id="btnLimpar" layoutX="903.0" layoutY="305.0" mnemonicParsing="false" onAction="#limparTela" text="Limpar" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab id="tabImage" text="Imagens">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="-6.0" layoutY="607.0" prefHeight="54.0" prefWidth="1067.0">
+                           <children>
+                              <Button fx:id="btnPageEsquerda" layoutX="411.0" layoutY="15.0" mnemonicParsing="false" onAction="#buscarImagemRetrocederPaginacao" text="&lt;" />
+                              <Button fx:id="btnPageDireita" layoutX="632.0" layoutY="15.0" mnemonicParsing="false" onAction="#buscarImagemAvancarPaginacao" text="&gt;" />
+                              <TextField fx:id="pageQuantidadePorPagina" disable="true" layoutX="449.0" layoutY="15.0" onAction="#buscarImagemPaginado" onInputMethodTextChanged="#buscarImagemPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Quantidade por pagina" text="6" />
+                              <TextField fx:id="pageNumeroPagina" layoutX="541.0" layoutY="15.0" onAction="#buscarImagemPaginado" onInputMethodTextChanged="#buscarImagemPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Número da pagina" text="1" />
+                           </children>
+                        </AnchorPane>
+                        <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" layoutX="83.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" layoutX="430.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img3" fitHeight="150.0" fitWidth="200.0" layoutX="787.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0" layoutX="78.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img5" fitHeight="150.0" fitWidth="200.0" layoutX="425.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="img6" fitHeight="150.0" fitWidth="200.0" layoutX="782.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+               </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

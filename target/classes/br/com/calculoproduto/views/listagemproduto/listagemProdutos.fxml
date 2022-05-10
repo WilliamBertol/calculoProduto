@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="943.0" prefWidth="1338.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.listagemproduto.ListagemProdutoController">
+   <children>
+      <SplitPane layoutX="131.0" layoutY="102.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.06711409395973154" layoutX="248.0" layoutY="77.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="796.0">
+                           <children>
+                              <Button fx:id="btnNovo" layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onAction="#novoRegistro" text="Novo" />
+                              <Label layoutX="630.0" layoutY="17.0" text="Listagem de Produtos" />
+                              <Button fx:id="btnEditar" layoutX="81.0" layoutY="13.0" mnemonicParsing="false" onAction="#editarProduto" text="Editar" />
+                              <Button fx:id="btnFornecedor" layoutX="252.0" layoutY="13.0" mnemonicParsing="false" onAction="#novoFornecedor" text="Fornecedor" />
+                              <Button fx:id="btnRemover" layoutX="140.0" layoutY="13.0" mnemonicParsing="false" onAction="#removerProduto" text="Remover" />
+                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="listProduto" layoutX="14.0" layoutY="40.0" onMouseClicked="#editarProdutoCliqueDuplo" prefHeight="809.0" prefWidth="1348.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="clmCodigo" prefWidth="108.0" text="Código" />
+                                  <TableColumn fx:id="clmDescricao" prefWidth="322.0" text="Descrição" />
+                                    <TableColumn fx:id="clmFornecedor" prefWidth="213.0" text="Fornecedor" />
+                                    <TableColumn fx:id="clmCustoMetal" prefWidth="100.0" text="Custo Metal" />
+                                    <TableColumn fx:id="clmValorBruto" prefWidth="100.0" text="Valor Bruto" />
+                                    <TableColumn fx:id="clmValorMetal" prefWidth="100.0" text="Valor Metal" />
+                                    <TableColumn fx:id="clmTotalCusto" prefWidth="100.0" text="Total Custo" />
+                                    <TableColumn fx:id="clmCustoGrama" prefWidth="100.0" text="Custo Grama" />
+                                    <TableColumn fx:id="clmFat" prefWidth="100.0" text="Fat" />
+                                    <TableColumn fx:id="clmPorcentagem" prefWidth="100.0" text="Porcentagem" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="btnPageEsquerda" layoutX="517.0" layoutY="828.0" mnemonicParsing="false" onAction="#buscarProdutosRetrocederPaginacao" text="&lt;" />
+                              <Button fx:id="btnPageDireita" layoutX="738.0" layoutY="828.0" mnemonicParsing="false" onAction="#buscarProdutosAvancarPaginacao" text="&gt;" />
+                              <TextField fx:id="pageQuantidadePorPagina" layoutX="555.0" layoutY="828.0" onAction="#buscarProdutoPaginado" onInputMethodTextChanged="#buscarProdutoPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Quantidade por pagina" text="20" />
+                              <TextField fx:id="pageNumeroPagina" layoutX="647.0" layoutY="828.0" onAction="#buscarProdutoPaginado" onInputMethodTextChanged="#buscarProdutoPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Número da pagina" text="1" />
+                              <TextField fx:id="filtroProduto" layoutX="14.0" layoutY="828.0" onAction="#buscarProdutoPaginado" onInputMethodTextChanged="#buscarProdutoPaginado" onKeyPressed="#buscarProdutoPaginado" onKeyReleased="#buscarProdutoPaginado" onKeyTyped="#buscarProdutoPaginado" prefHeight="25.0" prefWidth="409.0" promptText="Filtar Produtos" />
+                           </children></AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

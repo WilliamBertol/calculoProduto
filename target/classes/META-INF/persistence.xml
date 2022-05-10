@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee classpath:/com/sun/faces/web-facesconfig_2_0.xsd">
+
+	<persistence-unit name="eao-generico" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.calculoproduto.entity.Produto</class>
+
+		<properties>
+			<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+			<property name="hibernate.connection.username">postgres</property>
+			<property name="hibernate.connection.password">123</property>
+			<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/calculoProduto</property>
+			<property name="connection.pool_size">1</property>
+			<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+			<property name="hibernate.connection.shutdown" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
+		</properties>
+
+	</persistence-unit>
+</persistence>
