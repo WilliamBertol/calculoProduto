@@ -14,7 +14,7 @@
    <top>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnListagem" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#redirecionarListagemProduto" text="Listagem" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="900.0" AnchorPane.topAnchor="15.0" />
+            <Button fx:id="btnListagem" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#redirecionarListagemProduto" prefHeight="32.0" prefWidth="110.0" text="Listagem" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1214.0" AnchorPane.topAnchor="15.0" />
             <Label layoutX="501.0" layoutY="15.0" prefHeight="32.0" prefWidth="122.0" text="Cadastro de Produto" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="501.0" AnchorPane.rightAnchor="715.0" AnchorPane.topAnchor="15.0" />
             <Label fx:id="labelMensagem" alignment="BOTTOM_CENTER" layoutX="791.0" layoutY="17.0" prefHeight="29.0" prefWidth="483.0" style="-fx-text-alignment: center;" textAlignment="CENTER">
                <font>

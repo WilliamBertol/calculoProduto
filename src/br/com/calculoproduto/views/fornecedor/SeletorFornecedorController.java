@@ -1,5 +1,6 @@
 package br.com.calculoproduto.views.fornecedor;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class SeletorFornecedorController implements Initializable  {
 
@@ -78,6 +80,18 @@ public class SeletorFornecedorController implements Initializable  {
 			List<Fornecedor> fornecedores = eao.buscarFornecedoresPaginado(Integer.parseInt(pageQuantidadePorPagina.getText()), Integer.parseInt(pageNumeroPagina.getText()));
 			
 			listSeletorFornecedor.setItems(FXCollections.observableArrayList(fornecedores));
+		}
+	}
+	
+	@FXML
+	public void selecionarFornecedorDuploClique(MouseEvent event) throws IOException {
+		if (listSeletorFornecedor != null && listSeletorFornecedor.getSelectionModel() != null 
+				&& listSeletorFornecedor.getSelectionModel().getSelectedItem() != null && event.getClickCount() == 2) {
+			Fornecedor fornecedorSelecionado = listSeletorFornecedor.getSelectionModel().getSelectedItem();
+			Scene cadastroProduto = Main.getScreensSystem().getCadastroProduto();
+			cadastroProduto.setUserData(fornecedorSelecionado);
+			
+			Main.changeScreen(cadastroProduto, "cadastroProduto", "Fornecedor");
 		}
 	}
 }

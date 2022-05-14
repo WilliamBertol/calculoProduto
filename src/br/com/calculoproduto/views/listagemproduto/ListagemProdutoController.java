@@ -183,11 +183,11 @@ public class ListagemProdutoController implements Initializable {
 		ScreensSystem screensSystem = Main.getScreensSystem();
 		AmbienteSystem ambienteSystem = new AmbienteSystem();
 		
-		FXMLLoader fxmlLoaderCadastroFornecedor = new FXMLLoader();
-		fxmlLoaderCadastroFornecedor.setLocation(Main.class.getResource(ambienteSystem.getAmbiente() + "fornecedor/cadastroFornecedor.fxml"));
-		screensSystem.setCadastroFornecedor(new Scene((AnchorPane) fxmlLoaderCadastroFornecedor.load()));
+		FXMLLoader fxmlLoaderListagemFornecedor = new FXMLLoader();
+		fxmlLoaderListagemFornecedor.setLocation(Main.class.getResource(ambienteSystem.getAmbiente() + "listagemfornecedor/listagemFornecedor.fxml"));
+		screensSystem.setListagemFornecedor(new Scene((AnchorPane) fxmlLoaderListagemFornecedor.load()));
 		
-		Main.changeScreen(screensSystem.getCadastroFornecedor());
+		Main.changeScreen(screensSystem.getListagemFornecedor());
 	}
 
 	@FXML 
@@ -198,6 +198,7 @@ public class ListagemProdutoController implements Initializable {
 			String descricao = selectedItem.getDescricao();
 			
 			service.removerProduto(selectedItem.getIdProduto().longValue());
+			buscarProdutoPaginado();
 			
 			JOptionPane.showMessageDialog(null, "O produto: " + descricao + "Foi removido com sucesso!");
 		} else {

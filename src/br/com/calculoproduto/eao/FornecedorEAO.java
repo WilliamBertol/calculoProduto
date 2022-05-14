@@ -56,4 +56,47 @@ public class FornecedorEAO {
 		
 		return fornecedores;
 	}
+	
+	public void delete(Fornecedor fornecedor) {
+		Main main = new Main();
+		Session session = main.getSession();
+		
+		session.beginTransaction();
+		session.delete(fornecedor);
+		session.getTransaction().commit();
+		session.close();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Fornecedor> buscarFornecedorPaginado(int limit, int offSet, String filter) {
+		List<Fornecedor> fornecedores = new ArrayList<>();
+		
+		Main main = new Main();
+		Session session = main.getSession();
+		
+		session.beginTransaction();
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append(" SELECT * FROM Fornecedor ");
+		
+		if (filter != null && !filter.isEmpty() && !filter.isBlank()) {
+			sql.append(" WHERE NOME ILIKE '%" + filter.toString() + "%' ");
+			sql.append(" 	OR CAST(CODIGO AS TEXT) ILIKE '%" + filter.toString() + "%' ");
+		}
+		
+		sql.append(" LIMIT :limit ");
+		sql.append(" OFFSET(:offSet - 1) * :limit ");
+		
+		Query q = session.createSQLQuery(sql.toString()).addEntity(Fornecedor.class);
+		q.setLong("limit", limit);
+		q.setLong("offSet", offSet); 
+		q.setLong("limit", limit);
+		
+		fornecedores = q.list();
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		return fornecedores;
+	}
 }

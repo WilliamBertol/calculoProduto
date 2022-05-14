@@ -7,9 +7,12 @@ import java.util.ResourceBundle;
 import br.com.calculoproduto.AmbienteSystem;
 import br.com.calculoproduto.Main;
 import br.com.calculoproduto.ScreensSystem;
+import br.com.calculoproduto.Main.OnChangeScreen;
 import br.com.calculoproduto.eao.FornecedorEAO;
 import br.com.calculoproduto.entity.Fornecedor;
+import br.com.calculoproduto.service.FornecedorService;
 import br.com.calculoproduto.util.ObjectUtil;
+import javafx.beans.property.SimpleLongProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -47,20 +50,66 @@ public class CadastroFornecedorController implements Initializable {
 	@FXML 
 	private Label labelMensagem;
 
+	private Fornecedor fornecedor = new Fornecedor();
+	private FornecedorService service = new FornecedorService();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		Main.addOnChengeScreenListener(new OnChangeScreen() {
+			
+			@Override
+			public void onScreenChanged(Object userData, String nomeTela, String nomeParametro) {
+				popularTelaEditar(userData, nomeTela, nomeParametro);
+			}
+		});
+	}
+	
+	private void popularTelaEditar(Object userData, String nomeTela, String nomeParametro) {
+		if ("cadastroFornecedor".equals(nomeTela) && userData != null && "idFornecedor".equals(nomeParametro)) {
+			
+			SimpleLongProperty idFornecedor = (SimpleLongProperty) userData;
+			this.fornecedor = service.findFornecedor(idFornecedor.getValue());
+			
+			popularTelaEditarProduto(fornecedor);
+		}
+	}
+	
+	private void popularTelaEditarProduto(Fornecedor fornecedor) {
+		if (fornecedor.getCodigo() != null) {
+			this.txtCodigo.setText(fornecedor.getCodigo().toString());
+		}
+		
+		if (fornecedor.getNome() != null) {
+			this.txtNome.setText(fornecedor.getNome().toString());
+		}
+		
+		if (fornecedor.getEndereco() != null) {
+			this.txtEndereco.setText(fornecedor.getEndereco().toString());
+		}
+		
+		if (fornecedor.getCidade() != null) {
+			this.txtCidade.setText(fornecedor.getCidade().toString());
+		}
+		
+		if (fornecedor.getCnpj() != null) {
+			this.txtCnpj.setText(fornecedor.getCnpj().toString());
+		}	
+		
+		if (fornecedor.getInscricaoEstadual() != null) {
+			this.txtInscricaoEstadual.setText(fornecedor.getInscricaoEstadual().toString());
+		}
 	}
 
 	@FXML 
-	public void redirecionarListagemProduto() throws IOException {
+	public void redirecionarListagem() throws IOException {
 		ScreensSystem screensSystem = Main.getScreensSystem();
 		AmbienteSystem ambienteSystem = new AmbienteSystem();
 		
-		FXMLLoader fxmlLoaderListagemProduto = new FXMLLoader();
-		fxmlLoaderListagemProduto.setLocation(Main.class.getResource(ambienteSystem.getAmbiente() + "listagemproduto/listagemProdutos.fxml"));
-		screensSystem.setListagemProduto(new Scene((AnchorPane) fxmlLoaderListagemProduto.load()));
-		Main.changeScreen(screensSystem.getListagemProduto());
+		FXMLLoader fxmlLoaderListagemFornecedor = new FXMLLoader();
+		fxmlLoaderListagemFornecedor.setLocation(Main.class.getResource(ambienteSystem.getAmbiente() + "listagemfornecedor/listagemFornecedor.fxml"));
+		screensSystem.setListagemFornecedor(new Scene((AnchorPane) fxmlLoaderListagemFornecedor.load()));
+		
+		Main.changeScreen(screensSystem.getListagemFornecedor());
 	}
 
 	@FXML 
@@ -80,8 +129,6 @@ public class CadastroFornecedorController implements Initializable {
 	}
 	
 	private Fornecedor popularFornecedor() {
-		Fornecedor fornecedor = new Fornecedor();
-		
 		if (txtCodigo != null && ObjectUtil.isStringPreenchida(txtCodigo.getText())) {
 			fornecedor.setCodigo(Long.parseLong(txtCodigo.getText()));
 		}

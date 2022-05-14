@@ -136,6 +136,7 @@ public class CadastroProdutoController implements Initializable {
 	
 	@FXML 
 	public void salvarProduto(ActionEvent aa) {
+		labelMensagem.setText("");
 		Produto produto = popularProduto();
 		
 		if (produto == null) {
@@ -339,20 +340,54 @@ public class CadastroProdutoController implements Initializable {
 	}
 
 	private void popularTelaEditarProduto(Produto produto) {
-		this.codigo.setText(produto.getCodigo().toString());
-		this.descricao.setText(produto.getDescricao().toString());
-		this.teor.setText(produto.getTeor().toString());
-		this.kilo.setText(produto.getKilo().toString());
-		this.custoBruto.setText(produto.getCustoBruto().toString());
-		this.pesoMetal.setText(produto.getPesoMetal().toString());
-		this.peso.setText(produto.getPeso().toString());
-		this.acessorios.setText(produto.getAcessorio().toString());
-		this.solta.setText(produto.getSolta().toString());
-		this.banho.setText(produto.getBanho().toString());
-		this.custoJA.setText(produto.getCustoJa().toString());
+		if (produto.getCodigo() != null) {
+			this.codigo.setText(produto.getCodigo().toString());
+		}
 		
-		this.fornecedor = produto.getFornecedor();
-		labelFornecedor.setText(fornecedor.getNome());
+		if (produto.getDescricao() != null) {
+			this.descricao.setText(produto.getDescricao().toString());
+		}
+		
+		if (produto.getTeor() != null) {
+			this.teor.setText(produto.getTeor().toString());
+		}
+		
+		if (produto.getKilo() != null) {
+			this.kilo.setText(produto.getKilo().toString());
+		}
+		
+		if (produto.getCustoBruto() != null) {
+			this.custoBruto.setText(produto.getCustoBruto().toString());
+		}	
+		
+		if (produto.getPesoMetal() != null) {
+			this.pesoMetal.setText(produto.getPesoMetal().toString());
+		}
+		
+		if (produto.getPeso() != null) {
+			this.peso.setText(produto.getPeso().toString());
+		}	
+		
+		if (produto.getAcessorio() != null) {
+			this.acessorios.setText(produto.getAcessorio().toString());
+		}	
+		
+		if (produto.getSolta() != null) {
+			this.solta.setText(produto.getSolta().toString());
+		}
+		
+		if (produto.getBanho() != null) {
+			this.banho.setText(produto.getBanho().toString());
+		}
+		
+		if (produto.getCustoJa() != null) {
+			this.custoJA.setText(produto.getCustoJa().toString());
+		}
+		
+		if (produto.getFornecedor() != null) {
+			this.fornecedor = produto.getFornecedor();
+			labelFornecedor.setText(fornecedor.getNome());
+		}
 	}
 
 	@FXML

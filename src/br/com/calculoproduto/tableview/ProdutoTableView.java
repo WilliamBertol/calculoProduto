@@ -68,19 +68,54 @@ public class ProdutoTableView {
 	
 	public ProdutoTableView(Produto produto, CalculoProdutoBean bean) {
 		this.idProduto = new SimpleLongProperty(produto.getIdProduto());
-		this.codigo = new SimpleLongProperty(produto.getCodigo());
-		this.descricao = new SimpleStringProperty(produto.getDescricao());
-		this.teor = new SimpleDoubleProperty(produto.getTeor().doubleValue());
-		this.kilo = new SimpleDoubleProperty(produto.getKilo().doubleValue());
-		this.custoBruto = new SimpleDoubleProperty(produto.getCustoBruto().doubleValue());
-		this.pesoMetal = new SimpleDoubleProperty(produto.getPesoMetal().doubleValue());
-		this.peso = new SimpleDoubleProperty(produto.getPeso().doubleValue());
-		this.acessorio = new SimpleDoubleProperty(produto.getAcessorio().doubleValue());
-		this.solta = new SimpleDoubleProperty(produto.getSolta().doubleValue());
-		this.banho = new SimpleDoubleProperty(produto.getBanho().doubleValue());
-		this.custoJa = new SimpleDoubleProperty(produto.getCustoJa().doubleValue());
-		this.nomeFornecedor = new SimpleStringProperty(produto.getFornecedor().getNome());
+		if (produto.getCodigo() != null) {
+			this.codigo = new SimpleLongProperty(produto.getCodigo());
+		}
 		
+		if (produto.getDescricao() != null) {
+			this.descricao = new SimpleStringProperty(produto.getDescricao());
+		}
+		
+		if (produto.getTeor() != null) {
+			this.teor = new SimpleDoubleProperty(produto.getTeor().doubleValue());
+		}
+		
+		if (produto.getKilo() != null) {
+			this.kilo = new SimpleDoubleProperty(produto.getKilo().doubleValue());
+		}
+		
+		if (produto.getCustoBruto() != null) {
+			this.custoBruto = new SimpleDoubleProperty(produto.getCustoBruto().doubleValue());
+		}
+		
+		if (produto.getPesoMetal() != null) {
+			this.pesoMetal = new SimpleDoubleProperty(produto.getPesoMetal().doubleValue());
+		}
+		
+		if (produto.getPeso() != null) {
+			this.peso = new SimpleDoubleProperty(produto.getPeso().doubleValue());
+		}
+		
+		if (produto.getAcessorio() != null) {
+			this.acessorio = new SimpleDoubleProperty(produto.getAcessorio().doubleValue());
+		}
+		
+		if (produto.getSolta() != null) {
+			this.solta = new SimpleDoubleProperty(produto.getSolta().doubleValue());
+		}
+		
+		if (produto.getBanho() != null) {
+			this.banho = new SimpleDoubleProperty(produto.getBanho().doubleValue());
+		}
+		
+		if (produto.getCustoJa() != null) {
+			this.custoJa = new SimpleDoubleProperty(produto.getCustoJa().doubleValue());
+		}
+		
+		if (produto.getFornecedor() != null) {
+			this.nomeFornecedor = new SimpleStringProperty(produto.getFornecedor().getNome());
+		}
+			
 		if (bean.getCustoMetal() != null) {
 			this.custoMetal = new SimpleDoubleProperty(bean.getCustoMetal().setScale(2, RoundingMode.HALF_EVEN).doubleValue());
 		}
@@ -127,7 +162,11 @@ public class ProdutoTableView {
 	}
 
 	public String getDescricao() {
-		return descricao.getValue();
+		if (descricao != null) {
+			return descricao.getValue();
+		}
+		
+		return "";
 	}
 
 	public void setDescricao(SimpleStringProperty descricao) {
@@ -215,7 +254,11 @@ public class ProdutoTableView {
 	}
 
 	public double getCustoMetal() {
-		return custoMetal.get();
+		if (custoMetal != null) {
+			return custoMetal.get();
+		}
+		
+		return Double.valueOf(0);
 	}
 
 	public void setCustoMetal(SimpleDoubleProperty custoMetal) {
@@ -223,7 +266,11 @@ public class ProdutoTableView {
 	}
 
 	public double getBruto() {
-		return bruto.get();
+		if (bruto != null) {
+			return bruto.get();
+		}
+		
+		return Double.valueOf(0);
 	}
 
 	public void setBruto(SimpleDoubleProperty bruto) {
@@ -231,7 +278,11 @@ public class ProdutoTableView {
 	}
 
 	public double getValorMetal() {
-		return valorMetal.get();
+		if (valorMetal != null) {
+			return valorMetal.get();
+		}
+			
+		return Double.valueOf(0);
 	}
 
 	public void setValorMetal(SimpleDoubleProperty valorMetal) {
@@ -239,7 +290,11 @@ public class ProdutoTableView {
 	}
 
 	public double getTotalCusto() {
-		return totalCusto.get();
+		if (totalCusto != null) {
+			return totalCusto.get();
+		}
+
+		return Double.valueOf(0); 
 	}
 
 	public void setTotalCusto(SimpleDoubleProperty totalCusto) {
@@ -247,7 +302,11 @@ public class ProdutoTableView {
 	}
 
 	public double getCustoGrama() {
-		return custoGrama.get();
+		if (custoGrama != null) {
+			return custoGrama.get();
+		}
+		
+		return Double.valueOf(0);
 	}
 
 	public void setCustoGrama(SimpleDoubleProperty custoGrama) {
@@ -255,7 +314,11 @@ public class ProdutoTableView {
 	}
 
 	public double getFat() {
-		return fat.get();
+		if (fat != null) {
+			return fat.get();
+		}
+		
+		return Double.valueOf(0);
 	}
 
 	public void setFat(SimpleDoubleProperty fat) {
@@ -263,7 +326,11 @@ public class ProdutoTableView {
 	}
 
 	public double getPorcentagem() {
-		return porcentagem.get();
+		if (porcentagem != null) {
+			return porcentagem.get();
+		}
+		
+		return Double.valueOf(0);
 	}
 
 	public void setPorcentagem(SimpleDoubleProperty porcentagem) {

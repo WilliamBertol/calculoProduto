@@ -8,6 +8,7 @@ public class ScreensSystem {
 	private Scene cadastroProduto;
 	private Scene seletorFornecedor;
 	private Scene cadastroFornecedor;
+	private Scene listagemFornecedor;
 	
 	public Scene getListagemProduto() {
 		return listagemProduto;
@@ -32,5 +33,11 @@ public class ScreensSystem {
 	}
 	public void setCadastroFornecedor(Scene cadastroFornecedor) {
 		this.cadastroFornecedor = cadastroFornecedor;
+	}
+	public Scene getListagemFornecedor() {
+		return listagemFornecedor;
+	}
+	public void setListagemFornecedor(Scene listagemFornecedor) {
+		this.listagemFornecedor = listagemFornecedor;
 	}
 }
