@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="943.0" prefWidth="1338.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.cadastroproduto.CadastroProdutoController">
+<BorderPane fx:id="idBorder" prefHeight="943.0" prefWidth="1338.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.cadastroproduto.CadastroProdutoController">
    <top>
-      <AnchorPane BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="idAnchorMenu" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnListagem" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#redirecionarListagemProduto" prefHeight="32.0" prefWidth="110.0" text="Listagem" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1214.0" AnchorPane.topAnchor="15.0" />
             <Label layoutX="501.0" layoutY="15.0" prefHeight="32.0" prefWidth="122.0" text="Cadastro de Produto" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="501.0" AnchorPane.rightAnchor="715.0" AnchorPane.topAnchor="15.0" />
@@ -29,9 +29,9 @@
         <tabs>
           <Tab text="Cadastro">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="1060.0">
+              <AnchorPane fx:id="idAnchorConteudo" minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="1060.0" stylesheets="@../styles/Styles.css">
                      <children>
-                        <TextField id="codigo" fx:id="codigo" layoutX="65.0" layoutY="66.0" prefHeight="25.0" prefWidth="412.0" promptText="Código" />
+                        <TextField id="codigo" fx:id="codigo" layoutX="65.0" layoutY="66.0" prefHeight="25.0" prefWidth="412.0" promptText="Código" stylesheets="@../styles/Styles.css" />
                         <TextField id="descricao" fx:id="descricao" layoutX="540.0" layoutY="66.0" prefHeight="25.0" prefWidth="412.0" promptText="Descrição" />
                         <TextField id="teor" fx:id="teor" layoutX="65.0" layoutY="138.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Teor" />
                         <TextField id="kilo" fx:id="kilo" layoutX="289.0" layoutY="138.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Kilo" />
@@ -46,13 +46,13 @@
                         <Button fx:id="btnSelecionarFornecedor" layoutX="541.0" layoutY="237.0" mnemonicParsing="false" onAction="#selecionarFornecedor" prefHeight="25.0" prefWidth="189.0" text="Selecionar Fornecedor" />
                         <Label fx:id="labelFornecedor" layoutX="763.0" layoutY="236.0" prefHeight="26.0" prefWidth="192.0" style="-fx-border-color: #000; -fx-padding: 5px;" text="Informe um Fornecedor" />
                         <Button fx:id="btnAdicionarImagem" layoutX="290.0" layoutY="236.0" mnemonicParsing="false" onAction="#adicionarImagem" prefHeight="25.0" prefWidth="190.0" text="Adicionar Imagem" />
-                        <TextField fx:id="txtCustoMetal" disable="true" layoutX="65.0" layoutY="406.0" promptText="Custo Metal" style="-fx-border-color: #ff0000;" />
-                        <TextField fx:id="txtBruto" disable="true" layoutX="289.0" layoutY="406.0" promptText="Bruto" style="-fx-border-color: #ff0000;" />
-                        <TextField fx:id="txtMetal" disable="true" layoutX="540.0" layoutY="406.0" promptText="Metal" style="-fx-border-color: #ff0000;" />
-                        <TextField fx:id="txtTotalCusto" disable="true" layoutX="764.0" layoutY="406.0" promptText="Total Custo" style="-fx-border-color: #ff0000;" />
-                        <TextField fx:id="txtCustoGrama" disable="true" layoutX="65.0" layoutY="484.0" promptText="Custo Grama" style="-fx-border-color: #ff0000;" />
-                        <TextField fx:id="txtFat" disable="true" layoutX="289.0" layoutY="484.0" promptText="Fat" style="-fx-border-color: #ff0000;" />
-                        <TextField fx:id="txtPorcentagem" disable="true" layoutX="540.0" layoutY="484.0" promptText="Percentagem" style="-fx-border-color: #ff0000;" />
+                        <TextField fx:id="txtCustoMetal" disable="true" layoutX="65.0" layoutY="406.0" promptText="Custo Metal" />
+                        <TextField fx:id="txtBruto" disable="true" layoutX="289.0" layoutY="406.0" promptText="Bruto" />
+                        <TextField fx:id="txtMetal" disable="true" layoutX="540.0" layoutY="406.0" promptText="Metal" />
+                        <TextField fx:id="txtTotalCusto" disable="true" layoutX="764.0" layoutY="406.0" promptText="Total Custo" />
+                        <TextField fx:id="txtCustoGrama" disable="true" layoutX="65.0" layoutY="484.0" promptText="Custo Grama" style="-fx-border-color: ;" />
+                        <TextField fx:id="txtFat" disable="true" layoutX="289.0" layoutY="484.0" promptText="Fat" />
+                        <TextField fx:id="txtPorcentagem" disable="true" layoutX="540.0" layoutY="484.0" promptText="Percentagem" />
                         <Label layoutX="65.0" layoutY="389.0" text="Custo do Metal:" />
                         <Label layoutX="289.0" layoutY="389.0" text="Valor Bruto:" />
                         <Label layoutX="540.0" layoutY="389.0" text="Metal:" />

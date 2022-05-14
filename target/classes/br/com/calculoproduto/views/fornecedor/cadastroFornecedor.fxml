@@ -6,17 +6,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="943.0" prefWidth="1338.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.fornecedor.CadastroFornecedorController">
+<AnchorPane prefHeight="943.0" prefWidth="1338.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.fornecedor.CadastroFornecedorController">
    <children>
-      <SplitPane dividerPositions="0.05419766206163656" orientation="VERTICAL" prefHeight="943.0" prefWidth="1338.0">
+      <SplitPane dividerPositions="0.05419766206163656" orientation="VERTICAL" prefHeight="943.0" prefWidth="1338.0" stylesheets="@../styles/Styles.css">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane fx:id="idAnchorMenu" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <Button fx:id="btnListagem" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#redirecionarListagem" text="Listagem" />
                   <Label fx:id="labelMensagem" alignment="BOTTOM_CENTER" layoutX="329.0" layoutY="11.0" prefHeight="25.0" prefWidth="393.0" style="-fx-text-alignment: center;" textAlignment="CENTER" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane fx:id="idAnchorConteudo" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <TextField fx:id="txtCodigo" layoutX="52.0" layoutY="78.0" prefHeight="25.0" prefWidth="284.0" promptText="Código" />
                   <TextField fx:id="txtNome" layoutX="387.0" layoutY="78.0" prefHeight="25.0" prefWidth="284.0" promptText="Nome" />

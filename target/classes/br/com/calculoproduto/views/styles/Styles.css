@@ -1,0 +1,80 @@
+#idAnchorConteudo {
+	-fx-background-image: url("../img/fundo.jpg");
+	-fx-background-size: 100% 100%;
+}
+
+#idAnchorMenu {
+	-fx-background-color: #F0F8FF;
+}
+
+#idAnchorMenu .button {
+	-fx-background-color: #00BFFF;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+}
+
+#btnSalvar {
+	-fx-background-color: #00BFFF;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+}
+
+#btnLimpar {
+	-fx-background-color: #DC143C;
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+}
+
+#txtCustoMetal {
+	-fx-background-color: #000;
+	-fx-color: red;
+	-fx-font-weight: bold;
+}
+
+#txtBruto {
+	-fx-background-color: #000;
+	-fx-font-weight: bold;
+}
+
+#txtMetal {
+	-fx-background-color: #000;
+	-fx-font-weight: bold;
+}
+
+#txtTotalCusto {
+	-fx-background-color: #000;
+	-fx-font-weight: bold;
+}
+
+#txtCustoGrama {
+	-fx-background-color: #000;
+	-fx-font-weight: bold;
+}
+
+#txtFat {
+	-fx-background-color: #000;
+	-fx-font-weight: bold;
+}
+
+#txtPorcentagem {
+	-fx-background-color: #000;
+	-fx-font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
