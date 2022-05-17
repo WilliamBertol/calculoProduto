@@ -25,39 +25,14 @@
 	-fx-font-weight: bold;
 }
 
-#txtCustoMetal {
-	-fx-background-color: #000;
+.txtCalculo {
+	-fx-background-color: #98F5FF;
 	-fx-color: red;
 	-fx-font-weight: bold;
 }
 
-#txtBruto {
-	-fx-background-color: #000;
-	-fx-font-weight: bold;
-}
-
-#txtMetal {
-	-fx-background-color: #000;
-	-fx-font-weight: bold;
-}
-
-#txtTotalCusto {
-	-fx-background-color: #000;
-	-fx-font-weight: bold;
-}
-
-#txtCustoGrama {
-	-fx-background-color: #000;
-	-fx-font-weight: bold;
-}
-
-#txtFat {
-	-fx-background-color: #000;
-	-fx-font-weight: bold;
-}
-
-#txtPorcentagem {
-	-fx-background-color: #000;
+#labelNomePage {
+	-fx-label-padding: 5px;
 	-fx-font-weight: bold;
 }
 

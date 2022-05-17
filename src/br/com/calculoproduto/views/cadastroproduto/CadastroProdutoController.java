@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.text.MaskFormatter;
+
 import br.com.calculoproduto.AmbienteSystem;
 import br.com.calculoproduto.Main;
 import br.com.calculoproduto.Main.OnChangeScreen;
@@ -52,8 +54,6 @@ public class CadastroProdutoController implements Initializable {
 	private Button btnListagem;
 	@FXML
 	private Button btnSelecionarFornecedor;
-	@FXML
-	private Button btnAdicionarImagem;
 	@FXML 
 	private Button btnLimpar;
 	@FXML
@@ -116,6 +116,12 @@ public class CadastroProdutoController implements Initializable {
 	private ImageView img5;
 	@FXML 
 	private ImageView img6;
+	@FXML 
+	private ImageView imgAdiconarImg;
+	@FXML 
+	private Label labelImagem;
+	@FXML 
+	private ImageView imgAdiconarFornecedor;
 	
 	private Fornecedor fornecedor;
 	private List<File> imagens = new ArrayList<File>();
@@ -160,7 +166,7 @@ public class CadastroProdutoController implements Initializable {
 	}
 
 	@FXML
-	public void selecionarFornecedor(ActionEvent aa) throws IOException {
+	public void selecionarFornecedor() throws IOException {
 		if (fornecedor == null) {
 			AmbienteSystem ambienteSystem = new AmbienteSystem();
 			ScreensSystem screensSystem = Main.getScreensSystem();
@@ -186,14 +192,22 @@ public class CadastroProdutoController implements Initializable {
 	}
 
 	@FXML
-	public void adicionarImagem(ActionEvent aa) {
+	public void adicionarImagem() {
 		FileChooser file = new FileChooser();
 		
 		file.getExtensionFilters().add(new ExtensionFilter("Imagens", "*.jpg", "*.jpeg", "*.png"));
 		imagens = file.showOpenMultipleDialog(new Stage());
 		
-		labelMensagem.setText("Imagens adicionadas com sucesso!");
-		labelMensagem.setBackground(new Background(new BackgroundFill(Color.GREENYELLOW, new CornerRadii(5.0), new Insets(-5.0))));
+		if (imagens != null && !imagens.isEmpty()) {
+			
+			labelImagem.setText(imagens.size() + " Imagens Selecionadas");
+			
+			labelMensagem.setText("Imagens adicionadas com sucesso!");
+			labelMensagem.setBackground(new Background(new BackgroundFill(Color.GREENYELLOW, new CornerRadii(5.0), new Insets(-5.0))));
+		} else {
+			labelMensagem.setText("");
+			labelImagem.setText("Nenhuma Imagem");
+		}
 	}
 	
 	private Produto popularProduto() {
@@ -386,7 +400,25 @@ public class CadastroProdutoController implements Initializable {
 		
 		if (produto.getFornecedor() != null) {
 			this.fornecedor = produto.getFornecedor();
-			labelFornecedor.setText(fornecedor.getNome());
+			
+			String cnpj = null;
+			
+			if (fornecedor.getCnpj() != null) {
+				MaskFormatter mask;
+				try {
+					mask = new MaskFormatter("###.###.###/####-##");
+					mask.setValueContainsLiteralCharacters(false);
+					cnpj = mask.valueToString(fornecedor.getCnpj());
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			
+			if (ObjectUtil.isStringPreenchida(cnpj)) {
+				labelFornecedor.setText(cnpj + " - " + fornecedor.getNome());
+			} else {
+				labelFornecedor.setText(fornecedor.getNome());
+			}
 		}
 	}
 
@@ -422,6 +454,10 @@ public class CadastroProdutoController implements Initializable {
 			
 			List<ImagemProduto> imagens = imagemProdutoService.buscarImagemPaginado(produto.getIdProduto(), Integer.parseInt(pageQuantidadePorPagina.getText()), Integer.parseInt(pageNumeroPagina.getText()));
 			
+			img1.setImage(null);
+			img2.setImage(null);
+			img3.setImage(null);
+			
 			for (int i = 0; i < imagens.size(); i++) {
 				if (i == 0) {
 					
@@ -440,26 +476,7 @@ public class CadastroProdutoController implements Initializable {
 					ImagemProduto imagemProduto = imagens.get(i);
 					Image image = buscarImagem(imagemProduto);
 					img3.setImage(image);
-					
-				} else if (i == 3) {
-
-					ImagemProduto imagemProduto = imagens.get(i);
-					Image image = buscarImagem(imagemProduto);
-					img4.setImage(image);
-					
-				} else if (i == 4) {
-
-					ImagemProduto imagemProduto = imagens.get(i);
-					Image image = buscarImagem(imagemProduto);
-					img5.setImage(image);
-					
-				} else if (i == 5) {
-
-					ImagemProduto imagemProduto = imagens.get(i);
-					Image image = buscarImagem(imagemProduto);
-					img6.setImage(image);
-					
-				}
+				} 
 			}
  		}
 	}
@@ -478,7 +495,24 @@ public class CadastroProdutoController implements Initializable {
 				&& "Fornecedor".equals(nomeParametro)) {
 			
 			fornecedor = (Fornecedor) userData;
-			labelFornecedor.setText(fornecedor.getNome());
+			String cnpj = null;
+			
+			if (fornecedor.getCnpj() != null) {
+				MaskFormatter mask;
+				try {
+					mask = new MaskFormatter("###.###.###/####-##");
+					mask.setValueContainsLiteralCharacters(false);
+					cnpj = mask.valueToString(fornecedor.getCnpj());
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			
+			if (ObjectUtil.isStringPreenchida(cnpj)) {
+				labelFornecedor.setText(cnpj + " - " + fornecedor.getNome());
+			} else {
+				labelFornecedor.setText(fornecedor.getNome());
+			}
 		}
 	}
 }

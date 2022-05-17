@@ -99,4 +99,20 @@ public class FornecedorEAO {
 		
 		return fornecedores;
 	}
+
+	public Fornecedor findByCodigo(Long codigo) {
+		Main main = new Main();
+		Session session = main.getSession();
+		
+		session.beginTransaction();
+		
+		Query q = session.createQuery("from Fornecedor where codigo = :codigo");
+		q.setLong("codigo", codigo);
+		Fornecedor fornecedor = (Fornecedor) q.uniqueResult();
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		return fornecedor;
+	}
 }

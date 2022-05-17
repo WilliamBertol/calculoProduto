@@ -4,11 +4,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.text.MaskFormatter;
+
 import br.com.calculoproduto.AmbienteSystem;
 import br.com.calculoproduto.Main;
-import br.com.calculoproduto.ScreensSystem;
 import br.com.calculoproduto.Main.OnChangeScreen;
-import br.com.calculoproduto.eao.FornecedorEAO;
+import br.com.calculoproduto.ScreensSystem;
 import br.com.calculoproduto.entity.Fornecedor;
 import br.com.calculoproduto.service.FornecedorService;
 import br.com.calculoproduto.util.ObjectUtil;
@@ -115,17 +116,38 @@ public class CadastroFornecedorController implements Initializable {
 	@FXML 
 	public void SalvarFornecedor() {
 		Fornecedor fornecedor = popularFornecedor();
-		FornecedorEAO eao = new FornecedorEAO();
 		
-		eao.saveOrUpdate(fornecedor);
-		labelMensagem.setText("Fornecedor gravado com sucesso!");
-		labelMensagem.setBackground(new Background(new BackgroundFill(Color.GREENYELLOW, new CornerRadii(5.0), new Insets(-5.0))));
+		try {
+			FornecedorService service = new FornecedorService();
+			service.salvarFornecedor(fornecedor);
+			
+			labelMensagem.setText("Fornecedor gravado com sucesso!");
+			labelMensagem.setBackground(new Background(new BackgroundFill(Color.GREENYELLOW, new CornerRadii(5.0), new Insets(-5.0))));
+		} catch (Exception e) {
+			labelMensagem.setText(e.getMessage());
+			labelMensagem.setBackground(new Background(new BackgroundFill(Color.RED, new CornerRadii(5.0), new Insets(-5.0))));
+		}
 	}
 
 	@FXML 
 	public void limparTela() {
 		this.txtEndereco.setText("");
 		this.txtNome.setText("");
+	}
+	
+	@FXML
+	public void mascaraCnpj() {
+		MaskFormatter mask;
+		if (txtCnpj != null && ObjectUtil.isStringPreenchida(txtCnpj.getText()) && txtCnpj.getText().length() == 14) {
+			try {
+				
+				mask = new MaskFormatter("###.###.###/####-##");
+				mask.setValueContainsLiteralCharacters(false);
+				txtCnpj.setText(mask.valueToString(txtCnpj.getText()));
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
 	}
 	
 	private Fornecedor popularFornecedor() {
@@ -146,7 +168,13 @@ public class CadastroFornecedorController implements Initializable {
 		}
 		
 		if (txtCnpj != null && ObjectUtil.isStringPreenchida(txtCnpj.getText())) {
-			fornecedor.setCnpj(txtCnpj.getText());
+			
+			String cnpj = txtCnpj.getText().replace(".", "");
+			cnpj = cnpj.replace("/", "");
+			cnpj = cnpj.replace("-", "");
+			cnpj = cnpj.replace(" ", "");
+			
+			fornecedor.setCnpj(cnpj);
 		}
 		
 		if (txtInscricaoEstadual!= null && ObjectUtil.isStringPreenchida(txtInscricaoEstadual.getText())) {
@@ -155,7 +183,7 @@ public class CadastroFornecedorController implements Initializable {
 		
 		return fornecedor;
 	}
-
+	
 }
 
 

@@ -10,6 +10,7 @@ import br.com.calculoproduto.entity.HibernateUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -47,6 +48,7 @@ public class Main extends Application {
 			fxmlLoaderSeletorFornecedor.setLocation(Main.class.getResource(ambienteSystem.getAmbiente() + "fornecedor/seletorFornecedor.fxml"));
 			screensSystem.setSeletorFornecedor(new Scene((AnchorPane) fxmlLoaderSeletorFornecedor.load()));
 			
+			primaryStage.getIcons().add(new Image(getClass().getResourceAsStream(ambienteSystem.getAmbiente() + "img/logo.jpg")));
 			primaryStage.setScene(screensSystem.getListagemProduto());
 			primaryStage.show();
 			

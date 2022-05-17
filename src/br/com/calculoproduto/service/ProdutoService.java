@@ -28,6 +28,7 @@ public class ProdutoService {
 		try {
 			ValidadorProduto validor = new ValidadorProduto();
 			validor.validarCamposObrigatorios(produto);
+			validor.validarDuplicidadeCodigo(produto);
 			
 			eao.saveOrUpdate(produto);
 			gravarImagemProduto(produto, imagens);

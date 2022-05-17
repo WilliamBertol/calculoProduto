@@ -36,6 +36,22 @@ public class ProdutoEAO {
 		return produto;
 	}
 	
+	public Produto findByCodigo(Long codigo) {
+		Main main = new Main();
+		Session session = main.getSession();
+		
+		session.beginTransaction();
+		
+		Query q = session.createQuery("from Produto where codigo = :codigo");
+		q.setLong("codigo", codigo);
+		Produto produto = (Produto) q.uniqueResult();
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		return produto;
+	}
+	
 	public void delete(Produto produto) {
 		Main main = new Main();
 		Session session = main.getSession();

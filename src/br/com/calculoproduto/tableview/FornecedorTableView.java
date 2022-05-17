@@ -24,12 +24,29 @@ public class FornecedorTableView {
 
 	public FornecedorTableView(Fornecedor fornecedor) {
 		this.idFornecedor = new SimpleLongProperty(fornecedor.getIdFornecedor());
-		this.codigo = new SimpleLongProperty(fornecedor.getCodigo());
-		this.nome = new SimpleStringProperty(fornecedor.getNome());
-		this.endereco = new SimpleStringProperty(fornecedor.getEndereco());
-		this.cidade = new SimpleStringProperty(fornecedor.getCidade());
-		this.cnpj = new SimpleStringProperty(fornecedor.getCnpj());
-		this.inscricaoEstadual = new SimpleStringProperty(fornecedor.getInscricaoEstadual());
+		if (fornecedor.getCodigo() != null) {
+			this.codigo = new SimpleLongProperty(fornecedor.getCodigo());
+		}
+
+		if (fornecedor.getNome() != null) {
+			this.nome = new SimpleStringProperty(fornecedor.getNome());
+		}
+			
+		if (fornecedor.getEndereco() != null) {
+			this.endereco = new SimpleStringProperty(fornecedor.getEndereco());
+		}
+		
+		if (fornecedor.getCidade() != null) {
+			this.cidade = new SimpleStringProperty(fornecedor.getCidade());
+		}
+			
+		if (fornecedor.getCnpj() != null) {
+			this.cnpj = new SimpleStringProperty(fornecedor.getCnpj());
+		}
+			
+		if (fornecedor.getInscricaoEstadual() != null) {
+			this.inscricaoEstadual = new SimpleStringProperty(fornecedor.getInscricaoEstadual());
+		}
 	}
 	
 	public SimpleLongProperty getIdFornecedor() {
@@ -41,7 +58,11 @@ public class FornecedorTableView {
 	}
 
 	public Long getCodigo() {
-		return codigo.getValue();
+		if (codigo != null) {
+			return codigo.getValue();
+		}
+		
+		return null;
 	}
 
 	public void setCodigo(SimpleLongProperty codigo) {
@@ -85,7 +106,7 @@ public class FornecedorTableView {
 	}
 
 	public String getCnpj() {
-		if (endereco != null) {
+		if (cnpj != null) {
 			MaskFormatter mask;
 			try {
 				mask = new MaskFormatter("###.###.###/####-##");

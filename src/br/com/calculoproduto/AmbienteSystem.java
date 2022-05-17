@@ -2,7 +2,7 @@ package br.com.calculoproduto;
 
 public class AmbienteSystem {
 	
-	private boolean isAmbienteDesenvolvimento = Boolean.TRUE;
+	private boolean isAmbienteDesenvolvimento = Boolean.FALSE;
 
 	private String producao = "/src/br/com/calculoproduto/views/";
 	

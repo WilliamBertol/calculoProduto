@@ -5,6 +5,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="943.0" prefWidth="1338.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.fornecedor.CadastroFornecedorController">
    <children>
@@ -13,7 +14,16 @@
           <AnchorPane fx:id="idAnchorMenu" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <Button fx:id="btnListagem" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#redirecionarListagem" text="Listagem" />
-                  <Label fx:id="labelMensagem" alignment="BOTTOM_CENTER" layoutX="329.0" layoutY="11.0" prefHeight="25.0" prefWidth="393.0" style="-fx-text-alignment: center;" textAlignment="CENTER" />
+                  <Label fx:id="labelMensagem" alignment="BOTTOM_CENTER" layoutX="760.0" layoutY="7.0" prefHeight="29.0" prefWidth="564.0" style="-fx-text-alignment: center;" textAlignment="CENTER">
+                     <font>
+                        <Font name="Verdana" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelNomePage" layoutX="292.0" layoutY="4.0" prefHeight="39.0" prefWidth="287.0" text="Cadastro de Fornecedor">
+                     <font>
+                        <Font name="Calibri Bold Italic" size="28.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
           <AnchorPane fx:id="idAnchorConteudo" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -22,7 +32,7 @@
                   <TextField fx:id="txtNome" layoutX="387.0" layoutY="78.0" prefHeight="25.0" prefWidth="284.0" promptText="Nome" />
                   <TextField fx:id="txtEndereco" layoutX="720.0" layoutY="78.0" prefHeight="25.0" prefWidth="284.0" promptText="Endereço" />
                   <TextField fx:id="txtCidade" layoutX="52.0" layoutY="142.0" prefHeight="25.0" prefWidth="284.0" promptText="Cidade" />
-                  <TextField fx:id="txtCnpj" layoutX="387.0" layoutY="138.0" prefHeight="25.0" prefWidth="284.0" promptText="CNPJ" />
+                  <TextField fx:id="txtCnpj" layoutX="387.0" layoutY="138.0" onAction="#mascaraCnpj" onContextMenuRequested="#mascaraCnpj" onDragDetected="#mascaraCnpj" onDragDone="#mascaraCnpj" onDragDropped="#mascaraCnpj" onDragEntered="#mascaraCnpj" onDragExited="#mascaraCnpj" onDragOver="#mascaraCnpj" onInputMethodTextChanged="#mascaraCnpj" onKeyPressed="#mascaraCnpj" onKeyReleased="#mascaraCnpj" onKeyTyped="#mascaraCnpj" onMouseClicked="#mascaraCnpj" onMouseDragEntered="#mascaraCnpj" onMouseDragExited="#mascaraCnpj" onMouseDragOver="#mascaraCnpj" onMouseDragReleased="#mascaraCnpj" onMouseDragged="#mascaraCnpj" onMouseEntered="#mascaraCnpj" onMouseExited="#mascaraCnpj" onMouseMoved="#mascaraCnpj" onMousePressed="#mascaraCnpj" onMouseReleased="#mascaraCnpj" onRotate="#mascaraCnpj" onRotationFinished="#mascaraCnpj" onRotationStarted="#mascaraCnpj" onScroll="#mascaraCnpj" onScrollFinished="#mascaraCnpj" onScrollStarted="#mascaraCnpj" onSwipeDown="#mascaraCnpj" onSwipeLeft="#mascaraCnpj" onSwipeRight="#mascaraCnpj" onSwipeUp="#mascaraCnpj" onTouchMoved="#mascaraCnpj" onTouchPressed="#mascaraCnpj" onTouchReleased="#mascaraCnpj" onTouchStationary="#mascaraCnpj" prefHeight="25.0" prefWidth="284.0" promptText="CNPJ" />
                   <TextField fx:id="txtInscricaoEstadual" layoutX="720.0" layoutY="138.0" prefHeight="25.0" prefWidth="284.0" promptText="Inscrição Estadual" />
                   <Label layoutX="52.0" layoutY="61.0" text="Código: " />
                   <Label layoutX="720.0" layoutY="61.0" text="Endereço:" />

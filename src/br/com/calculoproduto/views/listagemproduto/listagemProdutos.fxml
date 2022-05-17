@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="943.0" prefWidth="1338.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.listagemproduto.ListagemProdutoController">
    <children>
@@ -19,10 +20,14 @@
                       <AnchorPane fx:id="idAnchorMenu" minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="796.0">
                            <children>
                               <Button fx:id="btnNovo" layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onAction="#novoRegistro" text="Novo" />
-                              <Label layoutX="630.0" layoutY="17.0" text="Listagem de Produtos" />
                               <Button fx:id="btnEditar" layoutX="81.0" layoutY="13.0" mnemonicParsing="false" onAction="#editarProduto" text="Editar" />
                               <Button fx:id="btnFornecedor" layoutX="252.0" layoutY="13.0" mnemonicParsing="false" onAction="#novoFornecedor" text="Fornecedor" />
                               <Button fx:id="btnRemover" layoutX="140.0" layoutY="13.0" mnemonicParsing="false" onAction="#removerProduto" text="Remover" />
+                              <Label fx:id="labelNomePage" layoutX="468.0" layoutY="11.0" prefHeight="39.0" prefWidth="287.0" text="Listagem de Produtos">
+                                 <font>
+                                    <Font name="Calibri Bold Italic" size="28.0" />
+                                 </font>
+                              </Label>
                            </children></AnchorPane>
                       <AnchorPane fx:id="idAnchorConteudo" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
