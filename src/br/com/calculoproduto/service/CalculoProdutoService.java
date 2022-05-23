@@ -9,6 +9,7 @@ import br.com.calculoproduto.entity.Produto;
 public class CalculoProdutoService {
 
 	public CalculoProdutoBean calculoProduto(Produto produto) {
+		
 		CalculoProdutoBean bean = new CalculoProdutoBean();
 		
 		if (produto.getPesoMetal() != null && produto.getTeor() != null) {
@@ -59,7 +60,7 @@ public class CalculoProdutoService {
 		
 		if (produto.getCustoJa() != null && bean.getCustoGrama() != null) {
 			BigDecimal subtract = produto.getCustoJa().subtract(bean.getCustoGrama());
-			BigDecimal custo = subtract.divide(produto.getCustoJa(), 2, RoundingMode.HALF_UP);
+			BigDecimal custo = subtract.divide(produto.getCustoJa(), 5, RoundingMode.HALF_UP);
 			BigDecimal porcentagem = custo.multiply(new BigDecimal(100));
 			
 			bean.setPorcentagem(porcentagem);

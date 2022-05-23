@@ -9,21 +9,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="943.0" prefWidth="1338.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.listagemfornecedor.ListagemFornecedorController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1350.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.listagemfornecedor.ListagemFornecedorController">
    <children>
       <SplitPane layoutX="131.0" layoutY="102.0" prefHeight="160.0" prefWidth="200.0" stylesheets="@../styles/Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <SplitPane dividerPositions="0.06711409395973154" layoutX="248.0" layoutY="77.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.0783132530120482" layoutX="248.0" layoutY="77.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                       <AnchorPane fx:id="idAnchorMenu" minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="796.0">
                            <children>
                               <Button fx:id="btnNovo" layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onAction="#novoRegistro" text="Novo" />
                               <Button fx:id="btnEditar" layoutX="81.0" layoutY="13.0" mnemonicParsing="false" onAction="#editarFornecedor" text="Editar" />
-                              <Button fx:id="btnVoltar" layoutX="252.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnVoltar" text="Voltar" />
-                              <Button fx:id="btnRemover" layoutX="140.0" layoutY="13.0" mnemonicParsing="false" onAction="#removerFornecedor" text="Remover" />
-                              <Label fx:id="labelNomePage" layoutX="404.0" layoutY="13.0" prefHeight="39.0" prefWidth="304.0" text="Listagem de Fornecedor">
+                              <Button fx:id="btnVoltar" layoutX="252.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnVoltar" text="Listagem de Produtos" />
+                              <Button fx:id="btnRemover" layoutX="140.0" layoutY="13.0" mnemonicParsing="false" onAction="#removerFornecedor" style="-fx-background-color: #DC143C;" text="Remover" />
+                              <Label fx:id="labelNomePage" layoutX="435.0" layoutY="2.0" prefHeight="39.0" prefWidth="304.0" text="Listagem de Fornecedor">
                                  <font>
                                     <Font name="Calibri Bold Italic" size="28.0" />
                                  </font>
@@ -31,7 +31,7 @@
                            </children></AnchorPane>
                       <AnchorPane fx:id="idAnchorConteudo" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <TableView fx:id="listFornecedor" layoutX="14.0" layoutY="40.0" onMouseClicked="#editarFornecedorCliqueDuplo" prefHeight="809.0" prefWidth="1348.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="listFornecedor" layoutX="14.0" layoutY="40.0" onMouseClicked="#editarFornecedorCliqueDuplo" prefHeight="566.0" prefWidth="1334.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="clmCodigo" prefWidth="108.0" text="Código" />
                                   <TableColumn fx:id="clmNome" prefWidth="322.0" text="Nome" />
@@ -41,11 +41,11 @@
                                     <TableColumn fx:id="clmInscricaoEstadual" prefWidth="165.0" text="Inscrição Estadual" />
                                 </columns>
                               </TableView>
-                              <Button fx:id="btnPageEsquerda" layoutX="517.0" layoutY="828.0" mnemonicParsing="false" onAction="#buscarFornecedorRetrocederPaginacao" text="&lt;" />
-                              <Button fx:id="btnPageDireita" layoutX="738.0" layoutY="828.0" mnemonicParsing="false" onAction="#buscarFornecedorAvancarPaginacao" text="&gt;" />
-                              <TextField fx:id="pageQuantidadePorPagina" layoutX="555.0" layoutY="828.0" onAction="#buscarFornecedorPaginado" onInputMethodTextChanged="#buscarFornecedorPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Quantidade por pagina" text="20" />
-                              <TextField fx:id="pageNumeroPagina" layoutX="647.0" layoutY="828.0" onAction="#buscarFornecedorPaginado" onInputMethodTextChanged="#buscarFornecedorPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Número da pagina" text="1" />
-                              <TextField fx:id="filtroFornecedor" layoutX="14.0" layoutY="828.0" onAction="#buscarFornecedorPaginado" onInputMethodTextChanged="#buscarFornecedorPaginado" onKeyPressed="#buscarFornecedorPaginado" onKeyReleased="#buscarFornecedorPaginado" onKeyTyped="#buscarFornecedorPaginado" prefHeight="25.0" prefWidth="409.0" promptText="Filtar Fornecedor" />
+                              <Button fx:id="btnPageEsquerda" layoutX="531.0" layoutY="577.0" mnemonicParsing="false" onAction="#buscarFornecedorRetrocederPaginacao" text="&lt;" />
+                              <Button fx:id="btnPageDireita" layoutX="752.0" layoutY="577.0" mnemonicParsing="false" onAction="#buscarFornecedorAvancarPaginacao" text="&gt;" />
+                              <TextField fx:id="pageQuantidadePorPagina" layoutX="569.0" layoutY="577.0" onAction="#buscarFornecedorPaginado" onInputMethodTextChanged="#buscarFornecedorPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Quantidade por pagina" text="20" />
+                              <TextField fx:id="pageNumeroPagina" layoutX="661.0" layoutY="577.0" onAction="#buscarFornecedorPaginado" onInputMethodTextChanged="#buscarFornecedorPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Número da pagina" text="1" />
+                              <TextField fx:id="filtroFornecedor" layoutX="28.0" layoutY="577.0" onAction="#buscarFornecedorPaginado" onInputMethodTextChanged="#buscarFornecedorPaginado" onKeyPressed="#buscarFornecedorPaginado" onKeyReleased="#buscarFornecedorPaginado" onKeyTyped="#buscarFornecedorPaginado" prefHeight="25.0" prefWidth="409.0" promptText="Filtar Fornecedor" />
                            </children></AnchorPane>
                     </items>
                   </SplitPane>

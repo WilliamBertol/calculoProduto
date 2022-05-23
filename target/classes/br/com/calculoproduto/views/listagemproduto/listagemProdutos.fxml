@@ -9,29 +9,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="943.0" prefWidth="1338.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.listagemproduto.ListagemProdutoController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1350.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.listagemproduto.ListagemProdutoController">
    <children>
       <SplitPane layoutX="131.0" layoutY="102.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <SplitPane dividerPositions="0.06711409395973154" layoutX="248.0" layoutY="77.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.07981927710843373" layoutX="248.0" layoutY="77.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                       <AnchorPane fx:id="idAnchorMenu" minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="796.0">
                            <children>
                               <Button fx:id="btnNovo" layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onAction="#novoRegistro" text="Novo" />
                               <Button fx:id="btnEditar" layoutX="81.0" layoutY="13.0" mnemonicParsing="false" onAction="#editarProduto" text="Editar" />
                               <Button fx:id="btnFornecedor" layoutX="252.0" layoutY="13.0" mnemonicParsing="false" onAction="#novoFornecedor" text="Fornecedor" />
-                              <Button fx:id="btnRemover" layoutX="140.0" layoutY="13.0" mnemonicParsing="false" onAction="#removerProduto" text="Remover" />
-                              <Label fx:id="labelNomePage" layoutX="468.0" layoutY="11.0" prefHeight="39.0" prefWidth="287.0" text="Listagem de Produtos">
+                              <Button fx:id="btnRemover" layoutX="140.0" layoutY="13.0" mnemonicParsing="false" onAction="#removerProduto" style="-fx-background-color: #DC143C;" text="Remover" />
+                              <Label fx:id="labelNomePage" layoutX="461.0" layoutY="6.0" prefHeight="39.0" prefWidth="287.0" text="Listagem de Produtos">
                                  <font>
                                     <Font name="Calibri Bold Italic" size="28.0" />
                                  </font>
                               </Label>
                            </children></AnchorPane>
-                      <AnchorPane fx:id="idAnchorConteudo" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <AnchorPane fx:id="idAnchorConteudo" minHeight="0.0" minWidth="0.0" prefHeight="643.0" prefWidth="1020.0">
                            <children>
-                              <TableView fx:id="listProduto" layoutX="14.0" layoutY="40.0" onMouseClicked="#editarProdutoCliqueDuplo" prefHeight="809.0" prefWidth="1348.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="listProduto" layoutX="14.0" layoutY="40.0" onMouseClicked="#editarProdutoCliqueDuplo" prefHeight="563.0" prefWidth="1346.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="clmCodigo" prefWidth="108.0" text="Código" />
                                   <TableColumn fx:id="clmDescricao" prefWidth="322.0" text="Descrição" />
@@ -45,11 +45,15 @@
                                     <TableColumn fx:id="clmPorcentagem" prefWidth="100.0" text="Porcentagem" />
                                 </columns>
                               </TableView>
-                              <Button fx:id="btnPageEsquerda" layoutX="517.0" layoutY="828.0" mnemonicParsing="false" onAction="#buscarProdutosRetrocederPaginacao" text="&lt;" />
-                              <Button fx:id="btnPageDireita" layoutX="738.0" layoutY="828.0" mnemonicParsing="false" onAction="#buscarProdutosAvancarPaginacao" text="&gt;" />
-                              <TextField fx:id="pageQuantidadePorPagina" layoutX="555.0" layoutY="828.0" onAction="#buscarProdutoPaginado" onInputMethodTextChanged="#buscarProdutoPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Quantidade por pagina" text="20" />
-                              <TextField fx:id="pageNumeroPagina" layoutX="647.0" layoutY="828.0" onAction="#buscarProdutoPaginado" onInputMethodTextChanged="#buscarProdutoPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Número da pagina" text="1" />
-                              <TextField fx:id="filtroProduto" layoutX="14.0" layoutY="828.0" onAction="#buscarProdutoPaginado" onInputMethodTextChanged="#buscarProdutoPaginado" onKeyPressed="#buscarProdutoPaginado" onKeyReleased="#buscarProdutoPaginado" onKeyTyped="#buscarProdutoPaginado" prefHeight="25.0" prefWidth="409.0" promptText="Filtar Produtos" />
+                              <AnchorPane layoutX="6.0" layoutY="573.0" prefHeight="45.0" prefWidth="1346.0">
+                                 <children>
+                                    <Button fx:id="btnPageEsquerda" layoutX="467.0" layoutY="2.0" mnemonicParsing="false" onAction="#buscarProdutosRetrocederPaginacao" text="&lt;" />
+                                    <Button fx:id="btnPageDireita" layoutX="688.0" layoutY="2.0" mnemonicParsing="false" onAction="#buscarProdutosAvancarPaginacao" text="&gt;" />
+                                    <TextField fx:id="pageQuantidadePorPagina" layoutX="505.0" layoutY="2.0" onAction="#buscarProdutoPaginado" onInputMethodTextChanged="#buscarProdutoPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Quantidade por pagina" text="20" />
+                                    <TextField fx:id="pageNumeroPagina" layoutX="598.0" layoutY="2.0" onAction="#buscarProdutoPaginado" onInputMethodTextChanged="#buscarProdutoPaginado" prefHeight="25.0" prefWidth="75.0" promptText="Número da pagina" text="1" />
+                                    <TextField fx:id="filtroProduto" layoutX="20.0" layoutY="2.0" onAction="#buscarProdutoPaginado" onInputMethodTextChanged="#buscarProdutoPaginado" onKeyPressed="#buscarProdutoPaginado" onKeyReleased="#buscarProdutoPaginado" onKeyTyped="#buscarProdutoPaginado" prefHeight="25.0" prefWidth="409.0" promptText="Filtar Produtos" />
+                                 </children>
+                              </AnchorPane>
                            </children></AnchorPane>
                     </items>
                   </SplitPane>

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.swing.text.MaskFormatter;
 
 @Entity
 @Table(name="fornecedor")
@@ -91,6 +92,23 @@ public class Fornecedor implements Serializable {
 
 	@Override
 	public String toString() {
-		return this.nome + " - " + endereco;
+		return getCnpjFormatado() + " - " + this.nome + " - " + this.endereco;
+	}
+	
+	public String getCnpjFormatado() {
+		String cnpjFormatado = "";
+		
+		if (getCnpj() != null) {
+			MaskFormatter mask;
+			try {
+				mask = new MaskFormatter("###.###.###/####-##");
+				mask.setValueContainsLiteralCharacters(false);
+				cnpjFormatado = mask.valueToString(getCnpj());
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		return cnpjFormatado;
 	}
 }

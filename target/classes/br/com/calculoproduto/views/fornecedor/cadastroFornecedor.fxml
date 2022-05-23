@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="943.0" prefWidth="1338.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.fornecedor.CadastroFornecedorController">
+<AnchorPane prefHeight="668.0" prefWidth="1350.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.calculoproduto.views.fornecedor.CadastroFornecedorController">
    <children>
-      <SplitPane dividerPositions="0.05419766206163656" orientation="VERTICAL" prefHeight="943.0" prefWidth="1338.0" stylesheets="@../styles/Styles.css">
+      <SplitPane dividerPositions="0.07507507507507508" orientation="VERTICAL" prefHeight="668.0" prefWidth="1350.0" stylesheets="@../styles/Styles.css">
         <items>
           <AnchorPane fx:id="idAnchorMenu" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
@@ -28,20 +28,20 @@
             </AnchorPane>
           <AnchorPane fx:id="idAnchorConteudo" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TextField fx:id="txtCodigo" layoutX="52.0" layoutY="78.0" prefHeight="25.0" prefWidth="284.0" promptText="Código" />
-                  <TextField fx:id="txtNome" layoutX="387.0" layoutY="78.0" prefHeight="25.0" prefWidth="284.0" promptText="Nome" />
-                  <TextField fx:id="txtEndereco" layoutX="720.0" layoutY="78.0" prefHeight="25.0" prefWidth="284.0" promptText="Endereço" />
-                  <TextField fx:id="txtCidade" layoutX="52.0" layoutY="142.0" prefHeight="25.0" prefWidth="284.0" promptText="Cidade" />
-                  <TextField fx:id="txtCnpj" layoutX="387.0" layoutY="138.0" onAction="#mascaraCnpj" onContextMenuRequested="#mascaraCnpj" onDragDetected="#mascaraCnpj" onDragDone="#mascaraCnpj" onDragDropped="#mascaraCnpj" onDragEntered="#mascaraCnpj" onDragExited="#mascaraCnpj" onDragOver="#mascaraCnpj" onInputMethodTextChanged="#mascaraCnpj" onKeyPressed="#mascaraCnpj" onKeyReleased="#mascaraCnpj" onKeyTyped="#mascaraCnpj" onMouseClicked="#mascaraCnpj" onMouseDragEntered="#mascaraCnpj" onMouseDragExited="#mascaraCnpj" onMouseDragOver="#mascaraCnpj" onMouseDragReleased="#mascaraCnpj" onMouseDragged="#mascaraCnpj" onMouseEntered="#mascaraCnpj" onMouseExited="#mascaraCnpj" onMouseMoved="#mascaraCnpj" onMousePressed="#mascaraCnpj" onMouseReleased="#mascaraCnpj" onRotate="#mascaraCnpj" onRotationFinished="#mascaraCnpj" onRotationStarted="#mascaraCnpj" onScroll="#mascaraCnpj" onScrollFinished="#mascaraCnpj" onScrollStarted="#mascaraCnpj" onSwipeDown="#mascaraCnpj" onSwipeLeft="#mascaraCnpj" onSwipeRight="#mascaraCnpj" onSwipeUp="#mascaraCnpj" onTouchMoved="#mascaraCnpj" onTouchPressed="#mascaraCnpj" onTouchReleased="#mascaraCnpj" onTouchStationary="#mascaraCnpj" prefHeight="25.0" prefWidth="284.0" promptText="CNPJ" />
-                  <TextField fx:id="txtInscricaoEstadual" layoutX="720.0" layoutY="138.0" prefHeight="25.0" prefWidth="284.0" promptText="Inscrição Estadual" />
-                  <Label layoutX="52.0" layoutY="61.0" text="Código: " />
-                  <Label layoutX="720.0" layoutY="61.0" text="Endereço:" />
-                  <Button fx:id="btnSalvar" layoutX="442.0" layoutY="218.0" mnemonicParsing="false" onAction="#SalvarFornecedor" text="Salvar" />
-                  <Button fx:id="btnLimpar" layoutX="536.0" layoutY="218.0" mnemonicParsing="false" onAction="#limparTela" text="Limpar" />
-                  <Label layoutX="387.0" layoutY="61.0" text="Nome: " />
-                  <Label layoutX="52.0" layoutY="125.0" text="Cidade:" />
-                  <Label layoutX="387.0" layoutY="121.0" text="CNPJ:" />
-                  <Label layoutX="720.0" layoutY="121.0" text="Inscrição Estadual:" />
+                  <TextField fx:id="txtCodigo" layoutX="198.0" layoutY="77.0" prefHeight="25.0" prefWidth="284.0" promptText="Código" />
+                  <TextField fx:id="txtNome" layoutX="533.0" layoutY="77.0" prefHeight="25.0" prefWidth="284.0" promptText="Nome" />
+                  <TextField fx:id="txtEndereco" layoutX="866.0" layoutY="77.0" prefHeight="25.0" prefWidth="284.0" promptText="Endereço" />
+                  <TextField fx:id="txtCidade" layoutX="198.0" layoutY="141.0" prefHeight="25.0" prefWidth="284.0" promptText="Cidade" />
+                  <TextField fx:id="txtCnpj" layoutX="533.0" layoutY="137.0" onAction="#mascaraCnpj" onContextMenuRequested="#mascaraCnpj" onDragDetected="#mascaraCnpj" onDragDone="#mascaraCnpj" onDragDropped="#mascaraCnpj" onDragEntered="#mascaraCnpj" onDragExited="#mascaraCnpj" onDragOver="#mascaraCnpj" onInputMethodTextChanged="#mascaraCnpj" onKeyPressed="#mascaraCnpj" onKeyReleased="#mascaraCnpj" onKeyTyped="#mascaraCnpj" onMouseClicked="#mascaraCnpj" onMouseDragEntered="#mascaraCnpj" onMouseDragExited="#mascaraCnpj" onMouseDragOver="#mascaraCnpj" onMouseDragReleased="#mascaraCnpj" onMouseDragged="#mascaraCnpj" onMouseEntered="#mascaraCnpj" onMouseExited="#mascaraCnpj" onMouseMoved="#mascaraCnpj" onMousePressed="#mascaraCnpj" onMouseReleased="#mascaraCnpj" onRotate="#mascaraCnpj" onRotationFinished="#mascaraCnpj" onRotationStarted="#mascaraCnpj" onScroll="#mascaraCnpj" onScrollFinished="#mascaraCnpj" onScrollStarted="#mascaraCnpj" onSwipeDown="#mascaraCnpj" onSwipeLeft="#mascaraCnpj" onSwipeRight="#mascaraCnpj" onSwipeUp="#mascaraCnpj" onTouchMoved="#mascaraCnpj" onTouchPressed="#mascaraCnpj" onTouchReleased="#mascaraCnpj" onTouchStationary="#mascaraCnpj" prefHeight="25.0" prefWidth="284.0" promptText="CNPJ" />
+                  <TextField fx:id="txtInscricaoEstadual" layoutX="866.0" layoutY="137.0" prefHeight="25.0" prefWidth="284.0" promptText="Inscrição Estadual" />
+                  <Label layoutX="198.0" layoutY="60.0" text="Código: " />
+                  <Label layoutX="866.0" layoutY="60.0" text="Endereço:" />
+                  <Button fx:id="btnSalvar" layoutX="588.0" layoutY="217.0" mnemonicParsing="false" onAction="#SalvarFornecedor" text="Salvar" />
+                  <Button fx:id="btnLimpar" layoutX="710.0" layoutY="217.0" mnemonicParsing="false" onAction="#limparTela" text="Limpar" />
+                  <Label layoutX="533.0" layoutY="60.0" text="Nome: " />
+                  <Label layoutX="198.0" layoutY="124.0" text="Cidade:" />
+                  <Label layoutX="533.0" layoutY="120.0" text="CNPJ:" />
+                  <Label layoutX="866.0" layoutY="120.0" text="Inscrição Estadual:" />
                </children>
             </AnchorPane>
         </items>

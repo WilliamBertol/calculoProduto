@@ -36,7 +36,7 @@ public class FornecedorEAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Fornecedor> buscarFornecedoresPaginado(int limit, int offSet) {
+	public List<Fornecedor> buscarFornecedoresPaginado(int limit, int offSet, String filtro) {
 		
 		List<Fornecedor> fornecedores = new ArrayList<>();
 		
@@ -45,7 +45,17 @@ public class FornecedorEAO {
 		
 		session.beginTransaction();
 		
-		Query q = session.createSQLQuery("select * from Fornecedor LIMIT :limit OFFSET(:offSet - 1) * :limit").addEntity(Fornecedor.class);
+		StringBuilder sql = new StringBuilder();
+		sql.append(" select * from Fornecedor ");
+		
+		if (filtro != null && !filtro.isEmpty() && !filtro.isBlank()) {
+			sql.append(" WHERE nome ILIKE '%" + filtro.toString() + "%' ");
+			sql.append(" 	OR CAST(CODIGO AS TEXT) ILIKE '%" + filtro.toString() + "%' ");
+		}
+		
+		sql.append(" LIMIT :limit OFFSET(:offSet - 1) * :limit ");
+		
+		Query q = session.createSQLQuery(sql.toString()).addEntity(Fornecedor.class);
 		q.setLong("limit", limit);
 		q.setLong("offSet", offSet); 
 		q.setLong("limit", limit);

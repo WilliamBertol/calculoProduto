@@ -31,6 +31,8 @@ public class SeletorFornecedorController implements Initializable  {
 	private TextField pageQuantidadePorPagina; 
 	@FXML
 	private TextField pageNumeroPagina;
+	@FXML 
+	private TextField txtFiltroFornecedor;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -76,11 +78,22 @@ public class SeletorFornecedorController implements Initializable  {
 	@FXML
 	public void buscarFornecedorPaginado() {
 		if (pageNumeroPagina != null || pageQuantidadePorPagina != null) {
+			
+			String filtro = buscarFiltro();
+			
 			FornecedorEAO eao = new FornecedorEAO();
-			List<Fornecedor> fornecedores = eao.buscarFornecedoresPaginado(Integer.parseInt(pageQuantidadePorPagina.getText()), Integer.parseInt(pageNumeroPagina.getText()));
+			List<Fornecedor> fornecedores = eao.buscarFornecedoresPaginado(Integer.parseInt(pageQuantidadePorPagina.getText()), Integer.parseInt(pageNumeroPagina.getText()), filtro);
 			
 			listSeletorFornecedor.setItems(FXCollections.observableArrayList(fornecedores));
 		}
+	}
+	
+	private String buscarFiltro() {
+		if (txtFiltroFornecedor != null && !txtFiltroFornecedor.getText().isEmpty() && !txtFiltroFornecedor.getText().isBlank()) {
+			return txtFiltroFornecedor.getText();
+		}
+		
+		return null;
 	}
 	
 	@FXML

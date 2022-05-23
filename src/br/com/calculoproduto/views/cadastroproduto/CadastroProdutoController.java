@@ -281,7 +281,7 @@ public class CadastroProdutoController implements Initializable {
 		this.solta.setText("");
 		this.banho.setText("");
 		this.custoJA.setText("");
-		this.fornecedor = new Fornecedor();
+		this.fornecedor = null;
 		this.labelFornecedor.setText("");
 		this.imagens = new ArrayList<File>();
 		this.produto = new Produto();
