@@ -12,7 +12,7 @@ public class ProdutoTableView {
 
 	private SimpleLongProperty idProduto;
 	
-	private SimpleLongProperty codigo;
+	private SimpleStringProperty codigo;
 	
 	private SimpleStringProperty descricao;
 	
@@ -20,7 +20,7 @@ public class ProdutoTableView {
 	
 	private SimpleDoubleProperty kilo;
 	
-	private SimpleDoubleProperty custoBruto;
+	private SimpleDoubleProperty custoBanho;
 	
 	private SimpleDoubleProperty pesoMetal;
 	
@@ -29,8 +29,6 @@ public class ProdutoTableView {
 	private SimpleDoubleProperty acessorio;
 	
 	private SimpleDoubleProperty solta;
-	
-	private SimpleDoubleProperty banho;
 	
 	private SimpleDoubleProperty custoJa;
 	
@@ -42,6 +40,8 @@ public class ProdutoTableView {
 
 	private SimpleDoubleProperty valorMetal;
 	
+	private SimpleDoubleProperty banho;
+	
 	private SimpleDoubleProperty totalCusto;
 	
 	private SimpleDoubleProperty custoGrama;
@@ -52,24 +52,23 @@ public class ProdutoTableView {
 	
 	public ProdutoTableView(Produto produto) {
 		this.idProduto = new SimpleLongProperty(produto.getIdProduto());
-		this.codigo = new SimpleLongProperty(produto.getCodigo());
+		this.codigo = new SimpleStringProperty(produto.getCodigo());
 		this.descricao = new SimpleStringProperty(produto.getDescricao());
 		this.teor = new SimpleDoubleProperty(produto.getTeor().doubleValue());
 		this.kilo = new SimpleDoubleProperty(produto.getKilo().doubleValue());
-		this.custoBruto = new SimpleDoubleProperty(produto.getCustoBruto().doubleValue());
-		this.pesoMetal = new SimpleDoubleProperty(produto.getPesoMetal().doubleValue());
+		this.custoBanho = new SimpleDoubleProperty(produto.getCustoBanho().doubleValue());
+		this.pesoMetal = new SimpleDoubleProperty(produto.getPrecoMetal().doubleValue());
 		this.peso = new SimpleDoubleProperty(produto.getPeso().doubleValue());
 		this.acessorio = new SimpleDoubleProperty(produto.getAcessorio().doubleValue());
 		this.solta = new SimpleDoubleProperty(produto.getSolta().doubleValue());
-		this.banho = new SimpleDoubleProperty(produto.getBanho().doubleValue());
-		this.custoJa = new SimpleDoubleProperty(produto.getCustoJa().doubleValue());
+		this.custoJa = new SimpleDoubleProperty(produto.getPrecoJa().doubleValue());
 		this.nomeFornecedor = new SimpleStringProperty(produto.getFornecedor().getNome());
 	}
 	
 	public ProdutoTableView(Produto produto, CalculoProdutoBean bean) {
 		this.idProduto = new SimpleLongProperty(produto.getIdProduto());
 		if (produto.getCodigo() != null) {
-			this.codigo = new SimpleLongProperty(produto.getCodigo());
+			this.codigo = new SimpleStringProperty(produto.getCodigo());
 		}
 		
 		if (produto.getDescricao() != null) {
@@ -84,12 +83,12 @@ public class ProdutoTableView {
 			this.kilo = new SimpleDoubleProperty(produto.getKilo().doubleValue());
 		}
 		
-		if (produto.getCustoBruto() != null) {
-			this.custoBruto = new SimpleDoubleProperty(produto.getCustoBruto().doubleValue());
+		if (produto.getCustoBanho() != null) {
+			this.custoBanho = new SimpleDoubleProperty(produto.getCustoBanho().doubleValue());
 		}
 		
-		if (produto.getPesoMetal() != null) {
-			this.pesoMetal = new SimpleDoubleProperty(produto.getPesoMetal().doubleValue());
+		if (produto.getPrecoMetal() != null) {
+			this.pesoMetal = new SimpleDoubleProperty(produto.getPrecoMetal().doubleValue());
 		}
 		
 		if (produto.getPeso() != null) {
@@ -104,12 +103,8 @@ public class ProdutoTableView {
 			this.solta = new SimpleDoubleProperty(produto.getSolta().doubleValue());
 		}
 		
-		if (produto.getBanho() != null) {
-			this.banho = new SimpleDoubleProperty(produto.getBanho().doubleValue());
-		}
-		
-		if (produto.getCustoJa() != null) {
-			this.custoJa = new SimpleDoubleProperty(produto.getCustoJa().doubleValue());
+		if (produto.getPrecoJa() != null) {
+			this.custoJa = new SimpleDoubleProperty(produto.getPrecoJa().doubleValue());
 		}
 		
 		if (produto.getFornecedor() != null) {
@@ -126,6 +121,10 @@ public class ProdutoTableView {
 		
 		if (bean.getValorMetal() != null) {
 			this.valorMetal = new SimpleDoubleProperty(bean.getValorMetal().setScale(2, RoundingMode.HALF_EVEN).doubleValue());
+		}
+		
+		if (bean.getBanho() != null) {
+			this.banho = new SimpleDoubleProperty(bean.getBanho().setScale(2, RoundingMode.HALF_EVEN).doubleValue());
 		}
 		
 		if (bean.getTotalCusto() != null) {
@@ -153,11 +152,11 @@ public class ProdutoTableView {
 		this.idProduto = idProduto;
 	}
 
-	public Long getCodigo() {
+	public String getCodigo() {
 		return codigo.getValue();
 	}
 
-	public void setCodigo(SimpleLongProperty codigo) {
+	public void setCodigo(SimpleStringProperty codigo) {
 		this.codigo = codigo;
 	}
 
@@ -189,12 +188,12 @@ public class ProdutoTableView {
 		this.kilo = kilo;
 	}
 
-	public SimpleDoubleProperty getCustoBruto() {
-		return custoBruto;
+	public SimpleDoubleProperty getCustoBanho() {
+		return custoBanho;
 	}
 
-	public void setCustoBruto(SimpleDoubleProperty custoBruto) {
-		this.custoBruto = custoBruto;
+	public void setCustoBanho(SimpleDoubleProperty custoBanho) {
+		this.custoBanho = custoBanho;
 	}
 
 	public SimpleDoubleProperty getPesoMetal() {
@@ -227,14 +226,6 @@ public class ProdutoTableView {
 
 	public void setSolta(SimpleDoubleProperty solta) {
 		this.solta = solta;
-	}
-
-	public SimpleDoubleProperty getBanho() {
-		return banho;
-	}
-
-	public void setBanho(SimpleDoubleProperty banho) {
-		this.banho = banho;
 	}
 
 	public SimpleDoubleProperty getCustoJa() {
@@ -287,6 +278,18 @@ public class ProdutoTableView {
 
 	public void setValorMetal(SimpleDoubleProperty valorMetal) {
 		this.valorMetal = valorMetal;
+	}
+
+	public double getBanho() {
+		if (banho != null) {
+			return banho.get();
+		}
+			
+		return Double.valueOf(0);
+	}
+
+	public void setBanho(SimpleDoubleProperty banho) {
+		this.banho = banho;
 	}
 
 	public double getTotalCusto() {

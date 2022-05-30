@@ -40,6 +40,16 @@
 	-fx-font-weight: bold;
 }
 
+#anchor_Login {
+	-fx-background-color: #fff;
+}
+
+#btnVoltar {
+	-fx-background-color: #00BFFF;
+	-fx-text-fill: black;
+	-fx-font-weight: bold;	
+}
+
 
 
 

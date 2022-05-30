@@ -28,21 +28,24 @@
                                     <Font name="Calibri Bold Italic" size="28.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="btnSair" layoutX="1277.0" layoutY="13.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="50.0" text="Sair" />
+                              <Button fx:id="btnAlterarSenha" layoutX="1164.0" layoutY="13.0" mnemonicParsing="false" onAction="#alterarSenha" text="Alterar Senha" />
                            </children></AnchorPane>
                       <AnchorPane fx:id="idAnchorConteudo" minHeight="0.0" minWidth="0.0" prefHeight="643.0" prefWidth="1020.0">
                            <children>
                               <TableView fx:id="listProduto" layoutX="14.0" layoutY="40.0" onMouseClicked="#editarProdutoCliqueDuplo" prefHeight="563.0" prefWidth="1346.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn fx:id="clmCodigo" prefWidth="108.0" text="Código" />
-                                  <TableColumn fx:id="clmDescricao" prefWidth="322.0" text="Descrição" />
-                                    <TableColumn fx:id="clmFornecedor" prefWidth="213.0" text="Fornecedor" />
-                                    <TableColumn fx:id="clmCustoMetal" prefWidth="100.0" text="Custo Metal" />
-                                    <TableColumn fx:id="clmValorBruto" prefWidth="100.0" text="Valor Bruto" />
-                                    <TableColumn fx:id="clmValorMetal" prefWidth="100.0" text="Valor Metal" />
-                                    <TableColumn fx:id="clmTotalCusto" prefWidth="100.0" text="Total Custo" />
-                                    <TableColumn fx:id="clmCustoGrama" prefWidth="100.0" text="Custo Grama" />
-                                    <TableColumn fx:id="clmFat" prefWidth="100.0" text="Fat" />
-                                    <TableColumn fx:id="clmPorcentagem" prefWidth="100.0" text="Porcentagem" />
+                                  <TableColumn fx:id="clmDescricao" prefWidth="231.0" text="Descrição" />
+                                    <TableColumn fx:id="clmFornecedor" prefWidth="198.0" text="Fornecedor" />
+                                    <TableColumn fx:id="clmCustoMetal" prefWidth="101.0" text="Custo Metal" />
+                                    <TableColumn fx:id="clmValorBruto" prefWidth="101.0" text="Valor Bruto" />
+                                    <TableColumn fx:id="clmValorMetal" prefWidth="101.0" text="Valor Metal" />
+                                    <TableColumn fx:id="clmBanho" prefWidth="101.0" text="Banho" />
+                                    <TableColumn fx:id="clmTotalCusto" prefWidth="101.0" text="Total Custo" />
+                                    <TableColumn fx:id="clmCustoGrama" prefWidth="101.0" text="Custo Grama" />
+                                    <TableColumn fx:id="clmFat" prefWidth="101.0" text="Fat" />
+                                    <TableColumn fx:id="clmPorcentagem" prefWidth="101.0" text="Porcentagem" />
                                 </columns>
                               </TableView>
                               <AnchorPane layoutX="6.0" layoutY="573.0" prefHeight="45.0" prefWidth="1346.0">

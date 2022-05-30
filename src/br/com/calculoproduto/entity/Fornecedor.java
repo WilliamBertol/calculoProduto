@@ -92,9 +92,13 @@ public class Fornecedor implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCnpjFormatado() + " - " + this.nome + " - " + this.endereco;
+		return getCnpjFormatado() + " - " + this.nome + " - " + getEnderecoFormatado();
 	}
 	
+	private String getEnderecoFormatado() {
+		return endereco != null ? endereco : "";
+	}
+
 	public String getCnpjFormatado() {
 		String cnpjFormatado = "";
 		

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import org.hibernate.Session;
 
-import br.com.calculoproduto.connect.Connect;
 import br.com.calculoproduto.entity.HibernateUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +21,6 @@ public class Main extends Application {
 	
 	private static Stage primaryStage;
 	private static ScreensSystem screensSystem = new ScreensSystem();
-	private Connect connect;
 	
 	@Override
 	public void start(Stage primaryStagee) {
@@ -48,8 +46,12 @@ public class Main extends Application {
 			fxmlLoaderSeletorFornecedor.setLocation(Main.class.getResource(ambienteSystem.getAmbiente() + "fornecedor/seletorFornecedor.fxml"));
 			screensSystem.setSeletorFornecedor(new Scene((AnchorPane) fxmlLoaderSeletorFornecedor.load()));
 			
+			FXMLLoader fxmlLoaderAutenticacao = new FXMLLoader();
+			fxmlLoaderAutenticacao.setLocation(Main.class.getResource(ambienteSystem.getAmbiente() + "autenticacao/autenticacao.fxml"));
+			screensSystem.setAutenticacao(new Scene((AnchorPane) fxmlLoaderAutenticacao.load()));
+			
 			primaryStage.getIcons().add(new Image(getClass().getResourceAsStream(ambienteSystem.getAmbiente() + "img/logo.jpg")));
-			primaryStage.setScene(screensSystem.getListagemProduto());
+			primaryStage.setScene(screensSystem.getAutenticacao());
 			primaryStage.show();
 			
 		} catch (IOException e) {
@@ -92,14 +94,6 @@ public class Main extends Application {
 
 	public void setSession(Session session) {
 		this.session = session;
-	}
-
-	public Connect getConnect() {
-		return connect;
-	}
-
-	public void setConnect(Connect connect) {
-		this.connect = connect;
 	}
 
 	public static ScreensSystem getScreensSystem() {

@@ -24,9 +24,7 @@ public class HibernateUtil {
 				conf.configure("src/hibernate.cfg.xml");
 			}
 			
-			System.out.println("Configure");
 			factory = conf.buildSessionFactory();
-			System.out.println("Construi");
 			return factory;
 		} catch (Throwable ex) {
 

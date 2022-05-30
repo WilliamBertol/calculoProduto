@@ -28,7 +28,7 @@ public class Produto implements Serializable {
 	@Column(name="idProduto")
 	private Long idProduto;
 	
-	private Long codigo;
+	private String codigo;
 	
 	private String descricao;
 	
@@ -36,9 +36,9 @@ public class Produto implements Serializable {
 	
 	private BigDecimal kilo;
 	
-	private BigDecimal custoBruto;
+	private BigDecimal custoBanho;
 	
-	private BigDecimal pesoMetal;
+	private BigDecimal precoMetal;
 	
 	private BigDecimal peso;
 	
@@ -46,9 +46,7 @@ public class Produto implements Serializable {
 	
 	private BigDecimal solta;
 	
-	private BigDecimal banho;
-	
-	private BigDecimal custoJa;
+	private BigDecimal precoJa;
 	
 	@ManyToOne(targetEntity=Fornecedor.class)
 	@JoinColumn(name="idFornecedor")
@@ -58,7 +56,7 @@ public class Produto implements Serializable {
 	private Set<ImagemProduto> imagensProduto = new HashSet<>();
 	
 	public Produto() {}
-	
+
 	public Long getIdProduto() {
 		return idProduto;
 	}
@@ -67,11 +65,11 @@ public class Produto implements Serializable {
 		this.idProduto = idProduto;
 	}
 
-	public Long getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Long codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
@@ -99,20 +97,20 @@ public class Produto implements Serializable {
 		this.kilo = kilo;
 	}
 
-	public BigDecimal getCustoBruto() {
-		return custoBruto;
+	public BigDecimal getCustoBanho() {
+		return custoBanho;
 	}
 
-	public void setCustoBruto(BigDecimal custoBruto) {
-		this.custoBruto = custoBruto;
+	public void setCustoBanho(BigDecimal custoBanho) {
+		this.custoBanho = custoBanho;
 	}
 
-	public BigDecimal getPesoMetal() {
-		return pesoMetal;
+	public BigDecimal getPrecoMetal() {
+		return precoMetal;
 	}
 
-	public void setPesoMetal(BigDecimal pesoMetal) {
-		this.pesoMetal = pesoMetal;
+	public void setPrecoMetal(BigDecimal precoMetal) {
+		this.precoMetal = precoMetal;
 	}
 
 	public BigDecimal getPeso() {
@@ -139,20 +137,12 @@ public class Produto implements Serializable {
 		this.solta = solta;
 	}
 
-	public BigDecimal getBanho() {
-		return banho;
+	public BigDecimal getPrecoJa() {
+		return precoJa;
 	}
 
-	public void setBanho(BigDecimal banho) {
-		this.banho = banho;
-	}
-
-	public BigDecimal getCustoJa() {
-		return custoJa;
-	}
-
-	public void setCustoJa(BigDecimal custoJa) {
-		this.custoJa = custoJa;
+	public void setPrecoJa(BigDecimal precoJa) {
+		this.precoJa = precoJa;
 	}
 
 	public Fornecedor getFornecedor() {

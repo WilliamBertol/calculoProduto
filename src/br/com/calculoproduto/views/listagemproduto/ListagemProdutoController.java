@@ -65,6 +65,8 @@ public class ListagemProdutoController implements Initializable {
 	@FXML 
 	private TableColumn<ProdutoTableView, SimpleDoubleProperty> clmValorMetal;
 	@FXML 
+	private TableColumn<ProdutoTableView, SimpleDoubleProperty> clmBanho;
+	@FXML 
 	private TableColumn<ProdutoTableView, SimpleDoubleProperty> clmTotalCusto;
 	@FXML 
 	private TableColumn<ProdutoTableView, SimpleDoubleProperty> clmCustoGrama;
@@ -205,6 +207,32 @@ public class ListagemProdutoController implements Initializable {
 			JOptionPane.showMessageDialog(null, "Erro: nenhum produto foi selecionado.");
 		}
 	}
+	
+	@FXML 
+	public void logout() {
+		try {
+			AmbienteSystem ambienteSystem = new AmbienteSystem();
+			ScreensSystem screensSystem = Main.getScreensSystem();
+			FXMLLoader fxmlLoaderAutenticacao = new FXMLLoader();
+			fxmlLoaderAutenticacao.setLocation(Main.class.getResource(ambienteSystem.getAmbiente() + "autenticacao/autenticacao.fxml"));
+			screensSystem.setAutenticacao(new Scene((AnchorPane) fxmlLoaderAutenticacao.load()));
+			Main.changeScreen(screensSystem.getAutenticacao());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	} 
+	
+	@FXML 
+	public void alterarSenha() {
+		try {
+			AmbienteSystem ambienteSystem = new AmbienteSystem();
+			FXMLLoader fxmlLoaderMudarSenha = new FXMLLoader();
+			fxmlLoaderMudarSenha.setLocation(Main.class.getResource(ambienteSystem.getAmbiente() + "alterarsenha/alterarSenha.fxml"));
+			Main.changeScreen(new Scene((AnchorPane) fxmlLoaderMudarSenha.load()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private void iniciarListagem() {
 		clmCodigo.setCellValueFactory(new PropertyValueFactory<ProdutoTableView, SimpleLongProperty>("codigo"));
@@ -213,11 +241,13 @@ public class ListagemProdutoController implements Initializable {
 		clmCustoMetal.setCellValueFactory(new PropertyValueFactory<ProdutoTableView, SimpleDoubleProperty>("custoMetal"));
 		clmValorBruto.setCellValueFactory(new PropertyValueFactory<ProdutoTableView, SimpleDoubleProperty>("bruto"));
 		clmValorMetal.setCellValueFactory(new PropertyValueFactory<ProdutoTableView, SimpleDoubleProperty>("valorMetal"));
+		clmBanho.setCellValueFactory(new PropertyValueFactory<ProdutoTableView, SimpleDoubleProperty>("banho"));
 		clmTotalCusto.setCellValueFactory(new PropertyValueFactory<ProdutoTableView, SimpleDoubleProperty>("totalCusto"));
 		clmCustoGrama.setCellValueFactory(new PropertyValueFactory<ProdutoTableView, SimpleDoubleProperty>("custoGrama"));
 		clmFat.setCellValueFactory(new PropertyValueFactory<ProdutoTableView, SimpleDoubleProperty>("fat"));
 		clmPorcentagem.setCellValueFactory(new PropertyValueFactory<ProdutoTableView, SimpleDoubleProperty>("porcentagem"));
-	} 
+	}
+
 }
 
 

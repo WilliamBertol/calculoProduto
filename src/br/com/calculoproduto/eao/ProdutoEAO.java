@@ -18,6 +18,17 @@ public class ProdutoEAO {
 		session.beginTransaction();
 		session.saveOrUpdate(produto);
 		session.getTransaction().commit();
+		
+		session.close();
+	}
+	
+	public void update(Produto produto) {
+		Main main = new Main();
+		Session session = main.getSession();
+		
+		session.beginTransaction();
+		session.update(produto);
+		session.getTransaction().commit();
 	}
 	
 	public Produto find(Long idProduto) {
@@ -36,14 +47,14 @@ public class ProdutoEAO {
 		return produto;
 	}
 	
-	public Produto findByCodigo(Long codigo) {
+	public Produto findByCodigo(String codigo) {
 		Main main = new Main();
 		Session session = main.getSession();
 		
 		session.beginTransaction();
 		
 		Query q = session.createQuery("from Produto where codigo = :codigo");
-		q.setLong("codigo", codigo);
+		q.setString("codigo", codigo);
 		Produto produto = (Produto) q.uniqueResult();
 		
 		session.getTransaction().commit();
@@ -73,11 +84,13 @@ public class ProdutoEAO {
 		session.beginTransaction();
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append(" SELECT * FROM Produto ");
+		sql.append(" SELECT * FROM Produto P ");
+		sql.append(" 	INNER JOIN Fornecedor F ON F.IDFORNECEDOR = P.IDFORNECEDOR ");
 		
 		if (filter != null && !filter.isEmpty() && !filter.isBlank()) {
-			sql.append(" WHERE descricao ILIKE '%" + filter.toString() + "%' ");
-			sql.append(" 	OR CAST(CODIGO AS TEXT) ILIKE '%" + filter.toString() + "%' ");
+			sql.append(" WHERE P.descricao ILIKE '%" + filter.toString() + "%' ");
+			sql.append(" 	OR F.nome ILIKE '%" + filter.toString() + "%' ");
+			sql.append(" 	OR CAST(P.CODIGO AS TEXT) ILIKE '%" + filter.toString() + "%' ");
 		}
 		
 		sql.append(" LIMIT :limit ");

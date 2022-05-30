@@ -39,52 +39,52 @@
                         <TextField id="descricao" fx:id="descricao" layoutX="703.0" layoutY="67.0" prefHeight="25.0" prefWidth="412.0" promptText="Descrição" />
                         <TextField id="teor" fx:id="teor" layoutX="228.0" layoutY="139.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Teor" />
                         <TextField id="kilo" fx:id="kilo" layoutX="452.0" layoutY="139.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Kilo" />
-                        <TextField id="Custo Bruto" fx:id="custoBruto" layoutX="703.0" layoutY="139.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Custo Bruto" />
-                        <TextField id="pesoMetal" fx:id="pesoMetal" layoutX="927.0" layoutY="139.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Peso Metal" />
+                        <TextField id="Custo Bruto" fx:id="custoBanho" layoutX="703.0" layoutY="139.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Custo Banho" />
+                        <TextField id="pesoMetal" fx:id="pesoMetal" layoutX="927.0" layoutY="139.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Preço Metal" />
                         <TextField id="peso" fx:id="peso" layoutX="228.0" layoutY="187.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Peso" />
                         <TextField id="acessorios" fx:id="acessorios" layoutX="452.0" layoutY="187.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Acessórios" />
                         <TextField id="solta" fx:id="solta" layoutX="703.0" layoutY="187.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Solta" />
-                        <TextField id="banho" fx:id="banho" layoutX="927.0" layoutY="187.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Banho" />
-                        <TextField id="custoJA" fx:id="custoJA" layoutX="229.0" layoutY="237.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Custa J.A." />
+                        <TextField id="custoJA" fx:id="custoJA" layoutX="927.0" layoutY="187.0" onAction="#calculoProduto" onInputMethodTextChanged="#calculoProduto" prefHeight="25.0" prefWidth="188.0" promptText="Preço J.A." />
                         <Button id="btnSalvar" fx:id="btnSalvar" layoutX="645.0" layoutY="306.0" mnemonicParsing="false" onAction="#salvarProduto" text="Salvar" />
                         <Label fx:id="labelFornecedor" layoutX="754.0" layoutY="238.0" prefHeight="29.0" prefWidth="362.0" style="-fx-border-color: #000; -fx-padding: 5px;" text="Informe um Fornecedor" />
                         <TextField fx:id="txtCustoMetal" alignment="CENTER" editable="false" layoutX="228.0" layoutY="424.0" promptText="Custo Metal" styleClass="txtCalculo" stylesheets="@../styles/Styles.css" />
                         <TextField fx:id="txtBruto" alignment="CENTER" editable="false" layoutX="452.0" layoutY="424.0" promptText="Bruto" styleClass="txtCalculo" />
                         <TextField fx:id="txtMetal" alignment="CENTER" editable="false" layoutX="706.0" layoutY="424.0" promptText="Metal" styleClass="txtCalculo" />
-                        <TextField fx:id="txtTotalCusto" alignment="CENTER" editable="false" layoutX="928.0" layoutY="424.0" promptText="Total Custo" styleClass="txtCalculo" />
-                        <TextField fx:id="txtCustoGrama" alignment="CENTER" editable="false" layoutX="228.0" layoutY="502.0" promptText="Custo Grama" styleClass="txtCalculo" />
-                        <TextField fx:id="txtFat" alignment="CENTER" editable="false" layoutX="452.0" layoutY="502.0" promptText="Fat" styleClass="txtCalculo" />
-                        <TextField fx:id="txtPorcentagem" alignment="CENTER" editable="false" layoutX="706.0" layoutY="502.0" promptText="Percentagem" styleClass="txtCalculo" />
+                        <TextField fx:id="txtTotalCusto" alignment="CENTER" editable="false" layoutX="229.0" layoutY="497.0" promptText="Total Custo" styleClass="txtCalculo" />
+                        <TextField fx:id="txtCustoGrama" alignment="CENTER" editable="false" layoutX="452.0" layoutY="497.0" promptText="Custo Grama" styleClass="txtCalculo" />
+                        <TextField fx:id="txtFat" alignment="CENTER" editable="false" layoutX="706.0" layoutY="497.0" promptText="Fat" styleClass="txtCalculo" />
+                        <TextField fx:id="txtPorcentagem" alignment="CENTER" editable="false" layoutX="927.0" layoutY="501.0" promptText="Percentagem" styleClass="txtCalculo" />
                         <Label layoutX="228.0" layoutY="407.0" text="Custo do Metal:" />
                         <Label layoutX="452.0" layoutY="407.0" text="Valor Bruto:" />
                         <Label layoutX="703.0" layoutY="407.0" text="Metal:" />
-                        <Label layoutX="927.0" layoutY="407.0" text="Total de Custo:" />
-                        <Label layoutX="228.0" layoutY="485.0" text="Custo da Grama:" />
-                        <Label layoutX="452.0" layoutY="485.0" text="Fat:" />
-                        <Label layoutX="706.0" layoutY="485.0" text="Procentagem:" />
+                        <Label layoutX="228.0" layoutY="480.0" text="Total de Custo:" />
+                        <Label layoutX="452.0" layoutY="480.0" text="Custo da Grama:" />
+                        <Label layoutX="706.0" layoutY="480.0" text="Fat:" />
+                        <Label layoutX="927.0" layoutY="484.0" text="Procentagem:" />
                         <Label layoutX="228.0" layoutY="50.0" text="Código: " />
                         <Label layoutX="706.0" layoutY="50.0" text="Descrição: " />
                         <Label layoutX="228.0" layoutY="122.0" text="Teor: " />
                         <Label layoutX="457.0" layoutY="122.0" text="Kilo:" />
-                        <Label layoutX="706.0" layoutY="122.0" text="Custo Bruto:" />
-                        <Label layoutX="927.0" layoutY="122.0" text="Peso Metal:" />
+                        <Label layoutX="706.0" layoutY="122.0" text="Custo Banho:" />
+                        <Label layoutX="927.0" layoutY="122.0" text="Preço Metal:" />
                         <Label layoutX="229.0" layoutY="170.0" text="Peso:" />
                         <Label layoutX="455.0" layoutY="170.0" text="Acessórios:" />
                         <Label layoutX="706.0" layoutY="170.0" text="Solta:" />
-                        <Label layoutX="927.0" layoutY="170.0" text="Banho:" />
-                        <Label layoutX="230.0" layoutY="218.0" text="Custa J.A." />
+                        <Label layoutX="927.0" layoutY="170.0" text="Preço J.A." />
                         <Button fx:id="btnLimpar" layoutX="1066.0" layoutY="306.0" mnemonicParsing="false" onAction="#limparTela" text="Limpar" />
-                        <ImageView fx:id="imgAdiconarImg" fitHeight="34.0" fitWidth="46.0" layoutX="452.0" layoutY="231.0" onMouseClicked="#adicionarImagem" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgAdiconarImg" fitHeight="34.0" fitWidth="46.0" layoutX="453.0" layoutY="234.0" onMouseClicked="#adicionarImagem" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/image.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="labelImagem" layoutX="495.0" layoutY="234.0" prefHeight="29.0" prefWidth="145.0" style="-fx-border-color: #000; -fx-padding: 5px;" text="Nenhuma Imagem" />
+                        <Label fx:id="labelImagem" layoutX="495.0" layoutY="236.0" prefHeight="29.0" prefWidth="145.0" style="-fx-border-color: #000; -fx-padding: 5px;" text="Nenhuma Imagem" />
                         <ImageView fx:id="imgAdiconarFornecedor" fitHeight="34.0" fitWidth="46.0" layoutX="704.0" layoutY="235.0" onMouseClicked="#selecionarFornecedor" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/fornecedor.png" />
                            </image>
                         </ImageView>
+                        <TextField fx:id="txtBanho" alignment="CENTER" editable="false" layoutX="928.0" layoutY="420.0" promptText="Banho" styleClass="txtCalculo" />
+                        <Label layoutX="927.0" layoutY="403.0" text="Banho:" />
                      </children></AnchorPane>
             </content>
           </Tab>

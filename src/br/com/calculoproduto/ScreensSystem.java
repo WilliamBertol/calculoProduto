@@ -9,6 +9,7 @@ public class ScreensSystem {
 	private Scene seletorFornecedor;
 	private Scene cadastroFornecedor;
 	private Scene listagemFornecedor;
+	private Scene autenticacao;
 	
 	public Scene getListagemProduto() {
 		return listagemProduto;
@@ -39,5 +40,11 @@ public class ScreensSystem {
 	}
 	public void setListagemFornecedor(Scene listagemFornecedor) {
 		this.listagemFornecedor = listagemFornecedor;
+	}
+	public Scene getAutenticacao() {
+		return autenticacao;
+	}
+	public void setAutenticacao(Scene autenticacao) {
+		this.autenticacao = autenticacao;
 	}
 }

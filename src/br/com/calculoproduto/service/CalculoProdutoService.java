@@ -12,9 +12,9 @@ public class CalculoProdutoService {
 		
 		CalculoProdutoBean bean = new CalculoProdutoBean();
 		
-		if (produto.getPesoMetal() != null && produto.getTeor() != null) {
+		if (produto.getPrecoMetal() != null && produto.getTeor() != null) {
 			
-			BigDecimal divide = produto.getPesoMetal().divide(new BigDecimal(1000));
+			BigDecimal divide = produto.getPrecoMetal().divide(new BigDecimal(1000));
 			BigDecimal custoMetal = divide.multiply(produto.getTeor());
 			
 			bean.setCustoMetal(custoMetal);
@@ -35,13 +35,19 @@ public class CalculoProdutoService {
 			bean.setValorMetal(metal);
 		}
 		
+		if (produto.getCustoBanho() != null && produto.getPeso() != null) {
+			BigDecimal valorBanho = produto.getCustoBanho().multiply(produto.getPeso());
+			
+			bean.setBanho(valorBanho);
+		}
+		
 		if (bean.getBruto() != null && produto.getAcessorio() != null
-				&& produto.getSolta() != null && bean.getValorMetal() != null && produto.getBanho() != null) {
+				&& produto.getSolta() != null && bean.getValorMetal() != null && bean.getBanho() != null) {
 			
 			BigDecimal addBrutoAcessorio = bean.getBruto().add(produto.getAcessorio());
 			BigDecimal addSolta = addBrutoAcessorio.add(produto.getSolta());
 			BigDecimal addMetal = addSolta.add(bean.getValorMetal());
-			BigDecimal totalCusto = addMetal.add(produto.getBanho());
+			BigDecimal totalCusto = addMetal.add(bean.getBanho());
 			
 			bean.setTotalCusto(totalCusto);
 		}
@@ -51,16 +57,16 @@ public class CalculoProdutoService {
 			bean.setCustoGrama(custoGrama);
 		}
 		
-		if (produto.getCustoJa() != null && produto.getPeso() != null) {
-			BigDecimal multiply = produto.getCustoJa().multiply(produto.getPeso());
+		if (produto.getPrecoJa() != null && produto.getPeso() != null) {
+			BigDecimal multiply = produto.getPrecoJa().multiply(produto.getPeso());
 			BigDecimal fat = multiply.divide(new BigDecimal(1.5), 2, RoundingMode.HALF_UP);
 			
 			bean.setFat(fat);
 		}
 		
-		if (produto.getCustoJa() != null && bean.getCustoGrama() != null) {
-			BigDecimal subtract = produto.getCustoJa().subtract(bean.getCustoGrama());
-			BigDecimal custo = subtract.divide(produto.getCustoJa(), 5, RoundingMode.HALF_UP);
+		if (produto.getPrecoJa() != null && bean.getCustoGrama() != null) {
+			BigDecimal subtract = produto.getPrecoJa().subtract(bean.getCustoGrama());
+			BigDecimal custo = subtract.divide(produto.getPrecoJa(), 5, RoundingMode.HALF_UP);
 			BigDecimal porcentagem = custo.multiply(new BigDecimal(100));
 			
 			bean.setPorcentagem(porcentagem);

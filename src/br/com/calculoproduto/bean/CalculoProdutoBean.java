@@ -10,6 +10,8 @@ public class CalculoProdutoBean {
 	
 	private BigDecimal valorMetal;
 	
+	private BigDecimal banho;
+	
 	private BigDecimal totalCusto;
 	
 	private BigDecimal custoGrama;
@@ -40,6 +42,14 @@ public class CalculoProdutoBean {
 
 	public void setValorMetal(BigDecimal valorMetal) {
 		this.valorMetal = valorMetal;
+	}
+
+	public BigDecimal getBanho() {
+		return banho;
+	}
+
+	public void setBanho(BigDecimal banho) {
+		this.banho = banho;
 	}
 
 	public BigDecimal getTotalCusto() {

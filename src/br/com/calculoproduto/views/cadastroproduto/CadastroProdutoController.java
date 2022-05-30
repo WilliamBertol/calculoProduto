@@ -65,7 +65,7 @@ public class CadastroProdutoController implements Initializable {
 	@FXML
 	private TextField kilo;
 	@FXML
-	private TextField custoBruto;
+	private TextField custoBanho;
 	@FXML
 	private TextField pesoMetal;
 	@FXML
@@ -75,8 +75,6 @@ public class CadastroProdutoController implements Initializable {
 	@FXML
 	private TextField solta;
 	@FXML
-	private TextField banho;
-	@FXML
 	private TextField custoJA;
 	@FXML
 	private TextField txtCustoMetal;
@@ -84,6 +82,8 @@ public class CadastroProdutoController implements Initializable {
 	private TextField txtBruto;
 	@FXML
 	private TextField txtMetal;
+	@FXML
+	private TextField txtBanho;
 	@FXML 
 	private TextField txtTotalCusto;
 	@FXML 
@@ -152,10 +152,11 @@ public class CadastroProdutoController implements Initializable {
 		
 		String messageErro = service.salvarProduto(produto, imagens);
 		
+		this.produto = produto;
+		
 		if (!ObjectUtil.isStringPreenchida(messageErro)) {
 			calculoProduto();
 			buscarImagemPaginado();
-			btnSalvar.setDisable(true);
 			
 			labelMensagem.setText("Produto gravado com sucesso!");
 			labelMensagem.setBackground(new Background(new BackgroundFill(Color.GREENYELLOW, new CornerRadii(5.0), new Insets(-5.0))));
@@ -218,7 +219,7 @@ public class CadastroProdutoController implements Initializable {
 		}
 		
 		if (ObjectUtil.isStringPreenchida(codigo.getText())) {
-			produto.setCodigo(Long.parseLong(codigo.getText()));
+			produto.setCodigo(codigo.getText());
 		}
 		
 		if (ObjectUtil.isStringPreenchida(descricao.getText())) {
@@ -233,12 +234,12 @@ public class CadastroProdutoController implements Initializable {
 			produto.setKilo(new BigDecimal(kilo.getText().replaceAll(",", ".")));
 		}
 		
-		if (ObjectUtil.isStringPreenchida(custoBruto.getText())) {
-			produto.setCustoBruto(new BigDecimal(custoBruto.getText().replaceAll(",", ".")));
+		if (ObjectUtil.isStringPreenchida(custoBanho.getText())) {
+			produto.setCustoBanho(new BigDecimal(custoBanho.getText().replaceAll(",", ".")));
 		}
 		
 		if (ObjectUtil.isStringPreenchida(pesoMetal.getText())) {
-			produto.setPesoMetal(new BigDecimal(pesoMetal.getText().replaceAll(",", ".")));
+			produto.setPrecoMetal(new BigDecimal(pesoMetal.getText().replaceAll(",", ".")));
 		}
 		
 		if (ObjectUtil.isStringPreenchida(peso.getText())) {
@@ -253,12 +254,8 @@ public class CadastroProdutoController implements Initializable {
 			produto.setSolta(new BigDecimal(solta.getText().replaceAll(",", ".")));
 		}
 		
-		if (ObjectUtil.isStringPreenchida(banho.getText())) {
-			produto.setBanho(new BigDecimal(banho.getText().replaceAll(",", ".")));
-		}
-		
 		if (ObjectUtil.isStringPreenchida(custoJA.getText())) {
-			produto.setCustoJa(new BigDecimal(custoJA.getText().replaceAll(",", ".")));
+			produto.setPrecoJa(new BigDecimal(custoJA.getText().replaceAll(",", ".")));
 		}
 		
 		if (fornecedor != null) {
@@ -274,12 +271,11 @@ public class CadastroProdutoController implements Initializable {
 		this.descricao.setText("");
 		this.teor.setText("");
 		this.kilo.setText("");
-		this.custoBruto.setText("");
+		this.custoBanho.setText("");
 		this.pesoMetal.setText("");
 		this.peso.setText("");
 		this.acessorios.setText("");
 		this.solta.setText("");
-		this.banho.setText("");
 		this.custoJA.setText("");
 		this.fornecedor = null;
 		this.labelFornecedor.setText("");
@@ -326,6 +322,10 @@ public class CadastroProdutoController implements Initializable {
 			this.txtMetal.setText(calculoProduto.getValorMetal().setScale(2, RoundingMode.HALF_EVEN).toString().replace(".", ","));
 		}
 		
+		if (calculoProduto.getBanho() != null) {
+			this.txtBanho.setText(calculoProduto.getBanho().setScale(2, RoundingMode.HALF_EVEN).toString().replace(".", ","));
+		}
+		
 		if (calculoProduto.getTotalCusto() != null) {
 			this.txtTotalCusto.setText(calculoProduto.getTotalCusto().setScale(2, RoundingMode.HALF_EVEN).toString().replace(".", ","));
 		}
@@ -348,6 +348,7 @@ public class CadastroProdutoController implements Initializable {
 		this.txtBruto.setText("");
 		this.txtMetal.setText("");
 		this.txtTotalCusto.setText("");
+		this.txtBanho.setText("");
 		this.txtCustoGrama.setText("");
 		this.txtFat.setText("");
 		this.txtPorcentagem.setText("");
@@ -370,12 +371,12 @@ public class CadastroProdutoController implements Initializable {
 			this.kilo.setText(produto.getKilo().toString());
 		}
 		
-		if (produto.getCustoBruto() != null) {
-			this.custoBruto.setText(produto.getCustoBruto().toString());
+		if (produto.getCustoBanho() != null) {
+			this.custoBanho.setText(produto.getCustoBanho().toString());
 		}	
 		
-		if (produto.getPesoMetal() != null) {
-			this.pesoMetal.setText(produto.getPesoMetal().toString());
+		if (produto.getPrecoMetal() != null) {
+			this.pesoMetal.setText(produto.getPrecoMetal().toString());
 		}
 		
 		if (produto.getPeso() != null) {
@@ -390,12 +391,8 @@ public class CadastroProdutoController implements Initializable {
 			this.solta.setText(produto.getSolta().toString());
 		}
 		
-		if (produto.getBanho() != null) {
-			this.banho.setText(produto.getBanho().toString());
-		}
-		
-		if (produto.getCustoJa() != null) {
-			this.custoJA.setText(produto.getCustoJa().toString());
+		if (produto.getPrecoJa() != null) {
+			this.custoJA.setText(produto.getPrecoJa().toString());
 		}
 		
 		if (produto.getFornecedor() != null) {
